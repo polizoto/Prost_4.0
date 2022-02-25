@@ -2,12 +2,12 @@ const { Drink } = require('../models');
 
 const drinkdata = [
   {
-    name: 'Apple Jack',
+    name: 'Negroni',
     image_url: 'placeholder',
     category_id: 1,
-    ingredients: "apple juice, vodka",
+    ingredients: "1 oz Gin, 1 oz Campari, 1 oz Carpano Antica",
     glass_type: "coupe",
-    instructions: "mix and drink"
+    instructions: "Stir & strain, Garnish with a fancy orange twist"
   }
 ];
 
