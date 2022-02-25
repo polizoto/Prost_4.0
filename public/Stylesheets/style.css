@@ -61,11 +61,16 @@
     text-align: center;
 }
 
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+}
 
 .card {
     display: inline-block;
     border-radius: 15px;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     height: 285px;
     margin: 15px;
