@@ -1,0 +1,33 @@
+{
+  "name": "prost_1.1",
+  "version": "1.1.0",
+  "description": "A drinks app for professionals",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/woffordlm/Prost_1.1.0.git"
+  },
+  "keywords": [
+    "drinks"
+  ],
+  "author": "Jonathan Werz, Luke Wofford, John McNair, Joseph Polizzotto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woffordlm/Prost_1.1.0/issues"
+  },
+  "homepage": "https://github.com/woffordlm/Prost_1.1.0#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.16.3"
+  }
+}
