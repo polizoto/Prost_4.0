@@ -1,4 +1,4 @@
-body {
+.body {
     text-align: center;
     background-color: lightgray;
 }
@@ -19,7 +19,7 @@ body {
 }
 
 .hero {
-    background-image: url("/public/images/jumbo.jpg");
+    background-image: url("/images/jumbo.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -60,7 +60,6 @@ body {
     font-family: 'Special Elite';
     text-align: center;
 }
-
 
 
 .card {
