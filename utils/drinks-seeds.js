@@ -205,9 +205,65 @@ const drinkdata = [
     name: 'Dark & Stormy',
     image_url: 'placeholder',
     category_id: 5,
-    ingredients: "2 oz Gosling’s, ¾ oz Ginger, ¾ oz Lime",
+    ingredients: "2 oz Goslings, ¾ oz Ginger, ¾ oz Lime",
     glass_type: "coupe",
     instructions: "10 count shake & strain on fresh ice, Top with Soda, Sink Lime Wheel"
+  },
+  {
+    name: 'Pimm’s Cup',
+    image_url: 'placeholder',
+    category_id: 7,
+    ingredients: "2 oz Pimm’s No 1, ¾ oz Ginger, ¾ oz Lemon",
+    glass_type: "Collins",
+    instructions: "Shake & Strain into fresh ice, top with soda, Garnish with 2 slices of cucumber"
+  },
+  {
+    name: 'Boulevardier',
+    image_url: 'placeholder',
+    category_id: 2,
+    ingredients: "1 ½ oz Larceny, ¾ oz Carpano Antica, ¾ oz Campari",
+    glass_type: "coupe",
+    instructions: "Shake & Strain, Garnish with flamed orange coin"
+  },
+  {
+    name: 'Daiquiri',
+    image_url: 'placeholder',
+    category_id: 5,
+    ingredients: "2 oz Don Q, ½ 0z Lime juice, ½ oz simple",
+    glass_type: "coupe",
+    instructions: "Shake and  double strain"
+  },
+  {
+    name: 'Gimlet',
+    image_url: 'placeholder',
+    category_id: 1,
+    ingredients: "2 oz Gin, ⅓ oz Lime juice, ⅓ oz Simple",
+    glass_type: "coupe",
+    instructions: "Shake and double strain"
+  },
+  {
+    name: 'Caipirinha',
+    image_url: 'placeholder',
+    category_id: 1,
+    ingredients: "2 oz Cachaca, ½ oz lime, ½ oz simple",
+    glass_type: "double OF",
+    instructions: "Muddle the lime and simple together, add the Cachaca, shake and dump"
+  },
+  {
+    name: 'Vieux Carre',
+    image_url: 'placeholder',
+    category_id: 2,
+    ingredients: "¾ oz Rye, ¾ oz Ansac Cognac, ¾ oz Carpano Antica, ¼ oz Benedictine, 2 Dash Angostura, 2 Dash Peychaud’s",
+    glass_type: "Double OF",
+    instructions: "Build over a large cube, Stir a couple times, Garnish with cherry"
+  },
+  {
+    name: 'Vesper',
+    image_url: 'placeholder',
+    category_id: 1,
+    ingredients: "1 ½ oz Gin (Beefeater), ¾ oz Vodka (Titos), ½ oz Cocchi Americano Bianco",
+    glass_type: "coupe",
+    instructions: "Shake and double strain, lemon twist"
   },
 
 
