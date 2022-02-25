@@ -19,7 +19,7 @@ body {
 }
 
 .hero {
-    background-image: url("/public/images/m-s-meeuwesen-QYWYnzvPTAQ-unsplash.jpg");
+    background-image: url("/public/images/jumbo.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -87,6 +87,23 @@ body {
 
 .card-title {
     font-size: 4rem;
+}
+
+#rum-pic {
+    height: 212px;
+}
+
+#cord-box {
+    height: 252px;
+}
+
+#cord-pic {
+    height: 237px;
+}
+
+#cordials {
+    font-size: 2rem;
+    height: 50px;
 }
 
 
