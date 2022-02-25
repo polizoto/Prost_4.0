@@ -23,7 +23,7 @@ const seedAll = async () => {
   
     await seedStars();
     console.log('--------------');
-    process.exit(0);
+    
   };
   
   seedAll();
