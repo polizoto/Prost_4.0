@@ -1,24 +1,28 @@
-[![Build Status](https://travis-ci.com/alperg/project2-starter-auth.svg?branch=master)](https://travis-ci.com/alperg/project2-starter-auth)
+<img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1470955349442-O34E4WM5KSY1H4UEAEFP/alleywebwhite.png?format=1500w">
 
-# Project 2 Starter with Auth
+# Alley Twenty Six Cocktail Recipe Reference
 
-A simple starter project with Express, Handlebars, Sequelize, Passport and Local Auth.
+<br>
+<img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1475675641861-GKYXT0SD0LFJULWRM8I8/Alley26_DurhamNative-0041-X3.jpg?format=2500w" width="400">
+<br>
 
-## Live link:
-https://project2-starter-auth.herokuapp.com/
+## Authors
 
-## Requirements:
+- [John McNair](https://github.com/mcnairjm)
+- [Joseph Polizzotto](https://github.com/polizoto)
+- [Jonathan Werz](https://github.com/jdwerz83)
+- [Luke Wofford](https://github.com/woffordlm)
+<br>
+<img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1472153427824-EYWTN45ZPDPFYAF77JMU/Alley26_DurhamNative-0039.jpg?format=2500w" width="400">
+<br>
 
-* Add `.env` file with the following content:
+## Technologies
 
-```
-SEQUELIZE_USER=your_mysql_db_user
-SEQUELIZE_PASSWORD=your_mysql_db_password
-SEQUELIZE_HOST=your_mysql_db_host
-AUTH_SECRET=your_auth_secret_key
-ADMIN_USER_PWD=admin_password
-USER_PWD=user_pwd
-FORCE_SYNC=true_or_false
-TU=mysql_user
-TP=mysql_password
-```
+[![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
+[![Npm package version](https://badgen.net/npm/v/express)](https://npmjs.com/package/express)
+<br>
+<img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1471622354369-TM1NWOBFIIUQT3S09M7T/COCKTAILAD.jpg?format=2500w" width="400">
+<br>
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
