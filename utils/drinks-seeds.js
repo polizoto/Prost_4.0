@@ -2,10 +2,10 @@ const { Drink } = require('../models');
 
 const drinkdata = [
   {
-    name: "apple jack",
+    name: 'Apple Jack',
     image_url: 'placeholder',
     category_id: 1,
-    ingredients: "apple juice and vodka",
+    ingredients: "apple juice, vodka",
     glass_type: "coupe",
     instructions: "mix and drink"
   }
