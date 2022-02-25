@@ -2,38 +2,38 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Drink extends Model {
-  static upvote(body, models) {
-    return models.Stars.create({
-      user_id: body.user_id,
-      drink_id: body.drink_id
-    }).then(() => {
-      return Drink.findOne({
-        where: {
-          id: body.drink_id
-        },
-        attributes: [
-          'id',
-          'image_url',
-          'name',
-          'category_id',
-          'ingredients',
-          'glass_type',
-          'instructions',
-          [sequelize.literal('(SELECT COUNT(*) FROM stars WHERE drink.id = stars.drink_id)'), 'star_count']
-        ],
-        include: [
-          {
-            model: models.Comments,
-            attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
-            include: {
-              model: models.User,
-              attributes: ['firstname', 'lastname']
-            }
-          }
-        ]
-      });
-    });
-  }
+//   static upvote(body, models) {
+//     return models.Stars.create({
+//       user_id: body.user_id,
+//       drink_id: body.drink_id
+//     }).then(() => {
+//       return Drink.findOne({
+//         where: {
+//           id: body.drink_id
+//         },
+//         attributes: [
+//           'id',
+//           'image_url',
+//           'name',
+//           'category_id',
+//           'ingredients',
+//           'glass_type',
+//           'instructions',
+//           [sequelize.literal('(SELECT COUNT(*) FROM stars WHERE drink.id = stars.drink_id)'), 'star_count']
+//         ],
+//         include: [
+//           {
+//             model: models.Comments,
+//             attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
+//             include: {
+//               model: models.User,
+//               attributes: ['firstname', 'lastname']
+//             }
+//           }
+//         ]
+//       });
+//     });
+//   }
 }
 
 Drink.init(
