@@ -265,6 +265,126 @@ const drinkdata = [
     glass_type: "coupe",
     instructions: "Shake and double strain, lemon twist"
   },
+  {
+    name: 'Mai Tai',
+    image_url: 'placeholder',
+    category_id: 5,
+    ingredients: "2 oz rum blend, ½ oz Cointreau, ½ oz Orgeat, ½ oz Lime",
+    glass_type: "brown tiki mug",
+    instructions: "pour over crushed ice and swizzle, garnish with mint bouquet"
+  },
+  {
+    name: 'Rusty Nail',
+    image_url: 'placeholder',
+    category_id: 2,
+    ingredients: "1 ½ oz Scotch (Johnnie Walker Red), ¾ oz Drambuie",
+    glass_type: "coupe",
+    instructions: "Build over a large cube, short stir, garnish with lemon peel"
+  },
+  {
+    name: 'Whiskey Sour (with egg white)',
+    image_url: 'placeholder',
+    category_id: 2,
+    ingredients: "1 ½ oz Bourbon (WT 101), ½ oz Demerara Syrup, ½ oz Lemon",
+    glass_type: "grande coupe",
+    instructions: "Ice Shake, Add egg white & dry Shake, Fine mesh strain into a chilled sour glass, Garnish with 3 drops of Angostura"
+  },
+  {
+    name: 'Whiskey Sour (w/o egg white)',
+    image_url: 'placeholder',
+    category_id: 2,
+    ingredients: "1 ½ oz Bourbon (WT 101), ¾ oz Demerara Syrup, ¾ oz Lemon",
+    glass_type: "double OF",
+    instructions: "Shake and dbl strain into fresh ice, Garnish with a flag"
+  },
+  {
+    name: 'Bronx',
+    image_url: 'placeholder',
+    category_id: 1,
+    ingredients: "1 oz Gin (Beefeater), 1 oz Orange Juice, ½ oz A26 Vermouth, ½ oz Carpano Antica",
+    glass_type: "coupe",
+    instructions: "Shake & dbl strain"
+  },
+  {
+    name: 'Income Tax',
+    image_url: 'placeholder',
+    category_id: 1,
+    ingredients: "1 ½ oz Beefeater, ¾ oz Orange Juice, ¼ oz A26 Vermouth, ¼ oz Punt e Mes, 2 Dashes Angostura",
+    glass_type: "coupe",
+    instructions: "Shake & dbl strain"
+  },
+  {
+    name: 'Toronto',
+    image_url: 'placeholder',
+    category_id: 2,
+    ingredients: "2 oz Old Overholt Rye, ⅓ oz Fernet Branca, ¼ oz Demerara",
+    glass_type: "coupe",
+    instructions: "Stir & strain, Garnish with lemon coin"
+  },
+  {
+    name: 'Gold Rush',
+    image_url: 'placeholder',
+    category_id: 2,
+    ingredients: "1 ½ oz Bourbon (Larceny), ¾ oz Honey Syrup, ¾ oz Lemon",
+    glass_type: "coupe",
+    instructions: "Shake and Dbl strain"
+  },
+  {
+    name: 'Corpse Reviver #2',
+    image_url: 'placeholder',
+    category_id: 1,
+    ingredients: "¾ oz Gin (Beefeater), ¾ oz Cocchi Americano Bianco, ¾ oz Cointreau, ¾ oz Lemon",
+    glass_type: "coupe",
+    instructions: "Shake and Dbl strain, Garnish with Absinthe sprayed coupe"
+  },
+  {
+    name: 'Corpse Reviver #26',
+    image_url: 'placeholder',
+    category_id: 6,
+    ingredients: "¾ oz Fair Game Apple Brandy, ¾ oz Aperol, ¾ oz Lillet Rose, ¾ oz Lemon Juice",
+    glass_type: "grand coupe",
+    instructions: "10 count shake and strain, Top with Franciacorta (or Sparkling Rose)"
+  },
+  {
+    name: 'Alaska',
+    image_url: 'placeholder',
+    category_id: 1,
+    ingredients: "2 oz Tanqueray, ¾ oz Yellow Chartreuse, 2 Dashes Orange bitters",
+    glass_type: "coupe",
+    instructions: "Shake and strain, no garnish"
+  },
+  {
+    name: 'Kir Royale',
+    image_url: 'placeholder',
+    category_id: 7,
+    ingredients: "½ oz Cassis, Top with Cava",
+    glass_type: "coupe",
+    instructions: "Garnish with a fancy twist"
+  },
+  {
+    name: 'Kir',
+    image_url: 'placeholder',
+    category_id: 7,
+    ingredients: "½ oz Cassis, Top with driest crispest white wine",
+    glass_type: "coupe",
+    instructions: "Garnish with fancy twist"
+  },
+  {
+    name: 'Sidecar',
+    image_url: 'placeholder',
+    category_id: 6,
+    ingredients: "1 ½ oz Ansac Cognac, ¾ Cointreau, ¾ Lemon juice",
+    glass_type: "coupe",
+    instructions: "Shake & strain into sugar rimmed coupe"
+  },
+  {
+    name: 'Cosmopolitan',
+    image_url: 'placeholder',
+    category_id: 4,
+    ingredients: "1 ½ oz Titos, ¾ oz Cointreau, ¼  oz Cranberry syrup, ¼ oz lime, ¼ oz simple",
+    glass_type: "coupe",
+    instructions: "Shake & dbl strain, Orange twist"
+  },
 
 
 
