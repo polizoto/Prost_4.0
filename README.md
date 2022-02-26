@@ -5,6 +5,7 @@
 <br>
 <img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1475675641861-GKYXT0SD0LFJULWRM8I8/Alley26_DurhamNative-0041-X3.jpg?format=2500w" width="400">
 <br>
+<br>
 
 ## Authors
 
@@ -16,8 +17,19 @@
 <br>
 <img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1472153427824-EYWTN45ZPDPFYAF77JMU/Alley26_DurhamNative-0039.jpg?format=2500w" width="400">
 <br>
+<br>
 
 ## Technologies
+
+<img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
+<img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">
+<img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white">
+<img src="https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg">
+
 
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
 [![Npm package version](https://badgen.net/npm/v/express)](https://npmjs.com/package/express)
@@ -27,4 +39,5 @@
 <br>
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
