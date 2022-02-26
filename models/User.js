@@ -3,26 +3,9 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-
-  validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-
-  comparePasswords = function (password, callback) {
-    bcrypt.compare(password, this.password, (error, isMatch) => {
-      if (error) {
-        return callback(error);
-      }
-      return callback(null, isMatch);
-    });
-  };
-
-  toJSON = function () {
-    const values = Object.assign({}, this.get());
-    delete values.password;
-    return values;
-  };
-
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
 }
 
 User.init(
@@ -33,11 +16,9 @@ User.init(
       primaryKey: true,
       autoIncrement: true
     },
-    firstName: {
-      type: DataTypes.STRING
-    },
-    lastName: {
-      type: DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
@@ -60,12 +41,15 @@ User.init(
   },
   {
     hooks: {
-      beforeValidate: function (user) {
-        if (user.changed('password')) {
-          return bcrypt.hash(user.password, 10).then((password) => {
-            user.password = password;
-          });
-        }
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
       }
     },
     sequelize,
