@@ -36,7 +36,7 @@ router.get("/", (req, res) => {
       "instructions",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM stars WHERE drink.id = stars.drink_id)"
+          "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
         ),
         "star_count",
       ],
@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
         attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ["first_name", "last_name"],
+          attributes: ["username"],
         },
       },
       {

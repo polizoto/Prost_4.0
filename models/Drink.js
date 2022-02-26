@@ -19,7 +19,7 @@ class Drink extends Model {
           'ingredients',
           'glass_type',
           'instructions',
-          [sequelize.literal('(SELECT COUNT(*) FROM stars WHERE drink.id = stars.drink_id)'), 'star_count']
+          [sequelize.literal('(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)'), 'star_count']
         ],
         include: [
           {
