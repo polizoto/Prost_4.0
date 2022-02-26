@@ -110,17 +110,25 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.get('/stars', (req, res) => {
-    Star.findAll({
-      attributes: [
-        "id", "drink_id"],
-// Need to adjust logic to find UNIQUE count of stars
+  // Get all drinks in descending order from number of stars...need to include query to exclude items that are not starred
+router.get('/stars', (req, res) => {
+    Drink.findAll({
+        attributes: [
+          "id", "name",
+          [ sequelize.literal(
+              "(SELECT COUNT(*) FROM star WHERE star.drink_id = drink.id)"
+            ),
+            "star_count",
+          ],
+        ],
+        order: [[sequelize.literal('star_count'), 'DESC']],
     })
-      .then(dbStarData => res.json(dbStarData))
+.then(dbStarData => res.json(dbStarData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
-  });
+})
+
 
 module.exports = router;
