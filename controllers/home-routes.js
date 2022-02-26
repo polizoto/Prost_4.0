@@ -110,4 +110,17 @@ router.get('/', (req, res) => {
       });
   });
 
+  router.get('/stars', (req, res) => {
+    Star.findAll({
+      attributes: [
+        "id", "drink_id"],
+// Need to adjust logic to find UNIQUE count of stars
+    })
+      .then(dbStarData => res.json(dbStarData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
 module.exports = router;

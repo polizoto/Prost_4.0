@@ -30,7 +30,7 @@ Star.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'stars'
+    modelName: 'star'
   }
 );
 
