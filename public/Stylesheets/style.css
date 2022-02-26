@@ -1,6 +1,7 @@
 .body {
     text-align: center;
     background-color: lightgray;
+    font-family: 'Special Elite';
 }
 
 .main-header {
@@ -15,7 +16,6 @@
 
 #list{
     text-align: left;
-    font-family: 'Special Elite';
 }
 
 .hero {
@@ -28,7 +28,7 @@
     align-items: flex-start;
     background-attachment: scroll;
     background-position: 90%;
-    background-position-y: -30px;
+    background-position-y: 3px;
     height: 595px;
     width: 100%;
     margin-top: 0;
@@ -57,14 +57,15 @@
     margin-top: 40px;
     background-color: #212529;
     color: white;
-    font-family: 'Special Elite';
     text-align: center;
 }
 
 .card-deck {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     grid-gap: 1rem;
+    margin: 15px;
+    justify-items: center;
 }
 
 .card {
@@ -85,7 +86,6 @@
 .card-block {
     background-color: black;
     color: white;
-    font-family: 'Special Elite';
     padding: -1rem 1rem;
 }
 
@@ -109,5 +109,45 @@
     font-size: 2rem;
     height: 50px;
 }
+/* favorites */
+.flip-card {
+    background-color: transparent;
+    width: 270px;
+    height: 400px;
+    perspective: 1000px;
+    margin-left: 50px;
+}
 
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: black;
+    color: white;
+    transform: rotateY(180deg);
+}
 
