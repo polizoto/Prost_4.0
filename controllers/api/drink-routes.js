@@ -5,10 +5,10 @@ const sequelize = require('../../config/connection');
 
 
 // find a drink by searched name
-router.get("/:name", (req, res) => {
+router.get("/:name", (req, res) => { 
   Drink.findAll({
     where: {
-      name: req.params.name,
+      name: req.params.name, 
     },
   })
     .then((dbDrinkData) => {
@@ -47,7 +47,7 @@ router.get("/", (req, res) => {
         attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ["first_name", "last_name"],
+          attributes: ["username"],
         },
       },
       {
