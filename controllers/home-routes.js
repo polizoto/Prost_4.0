@@ -165,12 +165,11 @@ router.get('/drinks', (req, res) => {
       ],
     })
     .then(dbDrinkData => {
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!',dbDrinkData);
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
 
       res.render('drinks', {
-        /*drinks,
-        loggedIn: req.session.loggedIn*/
+        drinks,
+        loggedIn: req.session.loggedIn
       });
     })
     .catch(err => {
@@ -302,7 +301,7 @@ router.get('/cordials', (req, res) => {
 router.get('/top10', (req, res) => {
   Drink.findAll({
       where: {
-          category_id : 7
+          // Will need to work out logic for displaying only the 
       },
       attributes: [
         "id",
@@ -328,7 +327,7 @@ router.get('/top10', (req, res) => {
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      res.render('homepage', {
+      res.render('drinks', {
         drinks,
         loggedIn: req.session.loggedIn
       });
