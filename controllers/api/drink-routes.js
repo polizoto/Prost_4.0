@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Drink, Comment, User, Category } = require("../../models");;
+const { Drink, Comment, User, Category, Star } = require("../../models");;
+const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
 
@@ -35,7 +36,7 @@ router.get("/", (req, res) => {
       "instructions",
       [
         sequelize.literal(
-          "(SELECT COUNT(*) FROM stars WHERE drink.id = stars.drink_id)"
+          "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
         ),
         "star_count",
       ],
@@ -46,7 +47,7 @@ router.get("/", (req, res) => {
         attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ["first_name", "last_name"],
+          attributes: ["username"],
         },
       },
       {
@@ -68,5 +69,16 @@ router.get("/", (req, res) => {
     });
 });
 
+// addStar to Drink
+  router.put('/addStar', withAuth, (req, res) => {
+    if (req.session) {
+      Drink.addStar({ ...req.body, user_id: req.session.user_id }, { Star, Comment, User })
+        .then(updatedStarData => res.json(updatedStarData))
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    }
+  });
 
 module.exports = router;
