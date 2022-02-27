@@ -208,7 +208,7 @@ router.get('/rum', (req, res) => {
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      res.render('homepage', {
+      res.render('drinks', {
         drinks,
         loggedIn: req.session.loggedIn
       });
@@ -248,7 +248,7 @@ router.get('/brandy', (req, res) => {
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      res.render('homepage', {
+      res.render('drinks', {
         drinks,
         loggedIn: req.session.loggedIn
       });
@@ -288,7 +288,7 @@ router.get('/cordials', (req, res) => {
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      res.render('homepage', {
+      res.render('drinks', {
         drinks,
         loggedIn: req.session.loggedIn
       });
