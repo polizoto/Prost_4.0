@@ -179,5 +179,165 @@ router.get('/drinks', (req, res) => {
     });
 });
 
+router.get('/rum', (req, res) => {
+  Drink.findAll({
+      where: {
+          category_id : 5
+      },
+      attributes: [
+        "id",
+        "image_url",
+        "name",
+        "category_id",
+        "ingredients",
+        "glass_type",
+        "instructions",
+        [
+          sequelize.literal(
+            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+          ),
+          "star_count",
+        ],
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ["id"],
+        },
+      ],
+    })
+    .then(dbDrinkData => {
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      res.render('homepage', {
+        drinks,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/brandy', (req, res) => {
+  Drink.findAll({
+      where: {
+          category_id : 6
+      },
+      attributes: [
+        "id",
+        "image_url",
+        "name",
+        "category_id",
+        "ingredients",
+        "glass_type",
+        "instructions",
+        [
+          sequelize.literal(
+            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+          ),
+          "star_count",
+        ],
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ["id"],
+        },
+      ],
+    })
+    .then(dbDrinkData => {
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      res.render('homepage', {
+        drinks,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/cordials', (req, res) => {
+  Drink.findAll({
+      where: {
+          category_id : 7
+      },
+      attributes: [
+        "id",
+        "image_url",
+        "name",
+        "category_id",
+        "ingredients",
+        "glass_type",
+        "instructions",
+        [
+          sequelize.literal(
+            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+          ),
+          "star_count",
+        ],
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ["id"],
+        },
+      ],
+    })
+    .then(dbDrinkData => {
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      res.render('homepage', {
+        drinks,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/top10', (req, res) => {
+  Drink.findAll({
+      where: {
+          category_id : 7
+      },
+      attributes: [
+        "id",
+        "image_url",
+        "name",
+        "category_id",
+        "ingredients",
+        "glass_type",
+        "instructions",
+        [
+          sequelize.literal(
+            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+          ),
+          "star_count",
+        ],
+      ],
+      include: [
+        {
+          model: Comment,
+          attributes: ["id"],
+        },
+      ],
+    })
+    .then(dbDrinkData => {
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      res.render('homepage', {
+        drinks,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 
 module.exports = router;
