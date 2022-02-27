@@ -4,10 +4,10 @@ const withAuth = require("../../utils/auth");
 const sequelize = require("../../config/connection");
 
 // find a drink by searched name
-router.get("/:name", (req, res) => {
+router.get("/:name", (req, res) => { 
   Drink.findAll({
     where: {
-      name: req.params.name,
+      name: req.params.name, 
     },
   })
     .then((dbDrinkData) => {
