@@ -23,7 +23,7 @@ class Drink extends Model {
         ],
         include: [
           {
-            model: models.Comments,
+            model: models.Comment,
             attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
             include: {
               model: models.User,
