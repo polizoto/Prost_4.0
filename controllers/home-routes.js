@@ -106,50 +106,14 @@ router.get("/drink/:id", (req, res) => {
         res.status(404).json({ message: "No drink found with this id" });
         return;
       }
-    })
-});
-    
-  router.get('/drink/:id', (req, res) => {
-    Drink.findOne({
-      where: {
-        id: req.params.id
-      }/*,
-      attributes: [
-        "id",
-        "image_url",
-        "name",
-        "category_id",
-        "ingredients",
-        "glass_type",
-        "instructions",
-        [
-          sequelize.literal(
-            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-          ),
-          "star_count",
-        ],
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]*/
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
 
+      res.render('single-drink', {
+        drinks,
+        loggedIn: req.session.loggedIn
+      });
+    })
+});
 router.get('/drinks', (req, res) => {
   Drink.findAll({
       attributes: [
@@ -514,3 +478,48 @@ router.get('/top10', (req, res) => {
 
 
 module.exports = router;
+
+
+
+
+
+// router.get('/drink/:id', (req, res) => {
+//   Drink.findOne({
+//     where: {
+//       id: req.params.id
+//     }/*,
+//     attributes: [
+//       "id",
+//       "image_url",
+//       "name",
+//       "category_id",
+//       "ingredients",
+//       "glass_type",
+//       "instructions",
+//       [
+//         sequelize.literal(
+//           "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+//         ),
+//         "star_count",
+//       ],
+//     ],
+//     include: [
+//       {
+//         model: Comment,
+//         attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
+//         include: {
+//           model: User,
+//           attributes: ['username']
+//         }
+//       },
+//       {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     ]*/
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+// });
