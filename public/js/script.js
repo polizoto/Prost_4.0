@@ -1,3 +1,8 @@
-fetch('')
-  .then(response => response.json())
-  .then(data => console.log(data));
+
+$(document).ready(function() {
+  
+  $(".heart").click(function() {
+    $(this).toggleClass("fa-regular fa-heart fa-solid fa-heart")
+  });
+
+});

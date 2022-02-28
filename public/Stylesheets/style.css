@@ -87,6 +87,22 @@
     transition: 0.3s;
 }
 
+.flip-card-back h1 {
+    margin-bottom: -0.5rem;
+}
+
+.flip-card-back ul {
+    margin-right: 1.5rem;
+}
+
+.heart {
+    color: red;
+    font-size: 50px;
+    margin-bottom: 11px;
+}
+
+
+
 .card:hover {
     box-shadow: 0 15px 50px 0 rgba(0,0,0,1);
 }
@@ -162,7 +178,7 @@
 }
 
 .flip-card-back {
-    background-color: black;
+    background-color: rgb(105, 100, 100);
     color: white;
     transform: rotateY(180deg);
 }
