@@ -56,6 +56,7 @@ router.get('/drinks', (req, res) => {
       res.status(500).json(err);
     });
 });
+
 // if logged in redirect to hompage
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
@@ -65,6 +66,7 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
+
 // find drink by id
 router.get("/drink/:id", (req, res) => {
   Drink.findOne({
@@ -114,6 +116,7 @@ router.get("/drink/:id", (req, res) => {
       });
     })
 });
+
 router.get('/drinks', (req, res) => {
   Drink.findAll({
       attributes: [
@@ -478,48 +481,3 @@ router.get('/top10', (req, res) => {
 
 
 module.exports = router;
-
-
-
-
-
-// router.get('/drink/:id', (req, res) => {
-//   Drink.findOne({
-//     where: {
-//       id: req.params.id
-//     }/*,
-//     attributes: [
-//       "id",
-//       "image_url",
-//       "name",
-//       "category_id",
-//       "ingredients",
-//       "glass_type",
-//       "instructions",
-//       [
-//         sequelize.literal(
-//           "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-//         ),
-//         "star_count",
-//       ],
-//     ],
-//     include: [
-//       {
-//         model: Comment,
-//         attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
-//         include: {
-//           model: User,
-//           attributes: ['username']
-//         }
-//       },
-//       {
-//         model: User,
-//         attributes: ['username']
-//       }
-//     ]*/
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//     res.status(500).json(err);
-//   });
-// });
