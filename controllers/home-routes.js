@@ -475,27 +475,7 @@ router.get('/cordials', (req, res) => {
   // Get all drinks in descending order from number of stars...need to include query to exclude items that are not starred
 router.get('/top10', (req, res) => {
 
-
-//     Star.findAll({
-//         attributes: [
-//           "drink_id",
-//         ],
-//     })
-//     .then(dbDrinkData => {
-//       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      
-//       var html = [];
-//       for (var i = 0; i < drinks.length; i++) {
-//           var name = drinks[i].drink_id;
-//           if(html.indexOf(name)==-1)
-//                 html.push(name);
-//       }
-//     }) .then(html => res.json(html))
-// // .then(dbStarData => res.json(dbStarData))
-// //       .catch(err => {
-// //         console.log(err);
-// //         res.status(500).json(err);
-// //       });
+    const starsCount = 1
 
     Drink.findAll({
         attributes: [
@@ -506,6 +486,7 @@ router.get('/top10', (req, res) => {
             "star_count",
           ],
         ],
+        having: sequelize.literal(`(star_count) >= ${starsCount}`),
         order: [[sequelize.literal('star_count'), 'DESC']],
     })
 .then(dbStarData => res.json(dbStarData))
