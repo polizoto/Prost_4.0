@@ -499,12 +499,18 @@ router.get('/top10', (req, res) => {
         having: sequelize.literal(`(star_count) >= ${starsCount}`),
         order: [[sequelize.literal('star_count'), 'DESC']],
     })
-.then(dbStarData => res.json(dbStarData))
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    .then(dbDrinkData => {
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      res.render('drinks', {
+        drinks,
+        loggedIn: req.session.loggedIn
       });
-})
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 
 module.exports = router;
