@@ -305,7 +305,13 @@ router.get('/cordials', (req, res) => {
 
     Drink.findAll({
         attributes: [
-          "id", "name",
+          "id",
+          "image_url",
+          "name",
+          "category_id",
+          "ingredients",
+          "glass_type",
+          "instructions",
           [ sequelize.literal(
               "(SELECT COUNT(*) FROM star WHERE star.drink_id = drink.id)"
             ),
