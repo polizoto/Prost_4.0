@@ -2,6 +2,10 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Category, User, Star, Comment, Drink } = require('../models');
 
+router.get('/', (req, res) => {
+  res.render('homepage');
+})
+
 router.get('/drinks', (req, res) => {
     Drink.findAll({
         attributes: [
