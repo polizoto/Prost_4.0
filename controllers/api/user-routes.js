@@ -56,7 +56,14 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// sign up route
+router.get('/', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('signup');
+});
 router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
@@ -71,6 +78,10 @@ router.post('/', (req, res) => {
         res.json(dbUserData);
       });
     })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   })
 
   router.post('/login', (req, res) => {
