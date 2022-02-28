@@ -27,7 +27,7 @@ class Drink extends Model {
             attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
             include: {
               model: models.User,
-              attributes: ['firstname', 'lastname']
+              attributes: ['username']
             }
           }
         ]

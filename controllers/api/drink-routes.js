@@ -70,7 +70,7 @@ router.get("/", (req, res) => {
 });
 
 // addStar to Drink
-  router.put('/addStar', withAuth, (req, res) => {
+  router.put('/addStar', (req, res) => {
     if (req.session) {
       Drink.addStar({ ...req.body, user_id: req.session.user_id }, { Star, Comment, User })
         .then(updatedStarData => res.json(updatedStarData))

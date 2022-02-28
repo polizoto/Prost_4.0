@@ -298,45 +298,48 @@ router.get('/cordials', (req, res) => {
     });
 });
 
-router.get('/top10', (req, res) => {
-  Drink.findAll({
-      where: {
-          // Will need to work out logic for displaying only the 
-      },
-      attributes: [
-        "id",
-        "image_url",
-        "name",
-        "category_id",
-        "ingredients",
-        "glass_type",
-        "instructions",
-        [
-          sequelize.literal(
-            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-          ),
-          "star_count",
+  // Get all drinks in descending order from number of stars...need to include query to exclude items that are not starred
+  router.get('/top10', (req, res) => {
+
+
+    Star.findAll({
+        attributes: [
+          "drink_id",
         ],
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: ["id"],
-        },
-      ],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      res.render('drinks', {
-        drinks,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+      
+      var html = [];
+      for (var i = 0; i < drinks.length; i++) {
+          var name = drinks[i].drink_id;
+          if(html.indexOf(name)==-1)
+                html.push(name);
+      }
+    }) .then(html => res.json(html))
+// .then(dbStarData => res.json(dbStarData))
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+
+//     Drink.findAll({
+//         attributes: [
+//           "id", "name",
+//           [ sequelize.literal(
+//               "(SELECT COUNT(*) FROM star WHERE star.drink_id = drink.id WHERE drink.id IN starIDs)"
+//             ),
+//             "star_count",
+//           ],
+//         ],
+//         order: [[sequelize.literal('star_count'), 'DESC']],
+//     })
+// .then(dbStarData => res.json(dbStarData))
+//       .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//       });
+})
 
 
 module.exports = router;
