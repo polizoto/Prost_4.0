@@ -4,10 +4,10 @@ const withAuth = require("../../utils/auth");
 const sequelize = require("../../config/connection");
 
 // find a drink by searched name
-router.get("/:name", (req, res) => { 
+router.get("/:name", (req, res) => {
   Drink.findAll({
     where: {
-      name: req.params.name, 
+      name: req.params.name,
     },
   })
     .then((dbDrinkData) => {
@@ -67,8 +67,41 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+// find starred drinks
+router.get("/favorites", (req, res) => {
+  Star.findAll({
+    attributes: ["id", "user_id"],
+    include: [
+      {
+        model: Drink,
+        attributes: [
+          "id",
+          "name",
+          "image_url",
+          "ingredients",
+          "instructions",
+          "glass_type",
+        ],
+      },
+    ],
+  })
+    .then((dbStarData) => {
+      if (!dbStarData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
+      }
+      //   const posts = dbPostData.map(post => post.get({ plain: true }));
+      //   res.render('favorites',dbPostData);
+      res.render("favorites");
+      // res.json(dbStarData)
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 // addStar to Drink
-router.put("/addStar", withAuth, (req, res) => {
+router.put("/addStar", (req, res) => {
   if (req.session) {
     Drink.addStar(
       { ...req.body, user_id: req.session.user_id },
@@ -81,34 +114,5 @@ router.put("/addStar", withAuth, (req, res) => {
       });
   }
 });
-// find starred drinks
-router.get("/favorites", (req, res) => {
-  Star.findAll({
-      attributes: [
-          "id",
-          "user_id"
-      ],
-        include: [
-          {
-            model: Drink,
-            attributes: ["id", 'name', 'image_url','ingredients','instructions', 'glass_type' ],
-          }]
-  })
-    .then(dbStarData => {
-        if (!dbStarData) {
-          res.status(404).json({ message: 'No post found with this id' });
-          return;
-        }
-      //   const posts = dbPostData.map(post => post.get({ plain: true }));
-      //   res.render('favorites',dbPostData);
-      res.render("favorites");
-      // res.json(dbStarData)
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
 
 module.exports = router;
-
