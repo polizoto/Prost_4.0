@@ -44,10 +44,18 @@ router.get("/drink/:id", (req, res) => {
         return;
       }
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      console.log('!!!!!!!!!!!!!!!', drinks)
-      //res.json(drinks)
+      // make an array from string of ingredient items
+      const drinkItems = drinks[0].ingredients.split(',');
+      // make object with separate items from array
+      let ingredients = []
+      function getIngredients(item, index) {
+        let object = { ingredient: index + 1, item: item.trim(), }
+        ingredients[index] = object
+    }
+    drinkItems.forEach((name, index) => getIngredients(name, index));
       res.render('single-drink', {
         drinks: drinks[0],
+        ingredients: ingredients,
         loggedIn: req.session.loggedIn
       });
     })
