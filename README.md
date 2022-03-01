@@ -27,6 +27,13 @@ enjoy an authentic Alley Twenty Six cocktail from home!</p>
 <br>
 <br>
 
+## Deployment
+
+- [Github](https://github.com/polizoto/Prost_4.0)
+- [Heroku](placeholder here)
+<br>
+<img src="/public/images/readme1.png" width="400">
+
 ## Technologies
 
 <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white">
