@@ -95,6 +95,10 @@
     margin-right: 1.5rem;
 }
 
+#cocktail-header {
+    color: black;
+}
+
 .heart {
     color: red;
     font-size: 50px;
