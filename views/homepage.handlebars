@@ -6,14 +6,19 @@
         
       </section>
     </div>
-
-      <form id="form" role="search">
+    <div class="container">
+      <form class="wrapper" id="form" role="search">
         <input type="search" id="query" name="q"
         placeholder="Search cocktail..."
-        aria-label="Search through site content">
+        aria-label="Search through site content"
+        autocomplete="off">
+        <div class="results">
+            <ul>
+            </ul>
+          </div>
         <button id="search-button">Search</button>
       </form>
-
+</div>
       <button id="random">A shot in the dark.</button>
 
       <br>
@@ -90,5 +95,6 @@
       <br>
       <br>
       <br>
+      <script src="/js/auto-complete.js"></script>
 
 

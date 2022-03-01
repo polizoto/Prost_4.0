@@ -10,17 +10,28 @@ router.get("/:name", (req, res) => {
       name: req.params.name,
     },
   })
-    .then((dbDrinkData) => {
-      if (!dbDrinkData) {
-        res.status(404).json({ message: "No post found with this id" });
-        return;
-      }
-      res.json(dbDrinkData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
+  .then((dbDrinkData) => {
+      
+    if (!dbDrinkData) {
+      res.status(404).json({ message: "No drink found with this id" });
+      return;
+    }
+    const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+    // make an array from string of ingredient items
+    const drinkItems = drinks[0].ingredients.split(',');
+    // make object with separate items from array
+    let ingredients = []
+    function getIngredients(item, index) {
+      let object = { ingredient: index + 1, item: item.trim(), }
+      ingredients[index] = object
+  }
+  drinkItems.forEach((name, index) => getIngredients(name, index));
+    res.render('single-drink', {
+      drinks: drinks[0],
+      ingredients: ingredients,
+      loggedIn: req.session.loggedIn
     });
+  })
 });
 // find all drinks
 router.get("/", (req, res) => {
