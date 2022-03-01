@@ -2,7 +2,6 @@ let heartBtn = document.querySelector('.card-deck');
 
 async function favClickHandler(event) {
     event.preventDefault();
-    console.log(event)
 
     // const id = window.location.toString().split('/')[
     //     window.location.toString().split('/').length - 1
@@ -21,7 +20,6 @@ async function favClickHandler(event) {
 
     if (response.ok) {
         document.location.reload();
-        console.log('favorited!!!!!!!!!!!!!!!!!!!!!!');
     } else {
         alert(response.statusText);
     }
