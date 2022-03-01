@@ -43,7 +43,7 @@ router.get("/drink/:id", (req, res) => {
         return;
       }
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      res.json(drinks)
+      // res.json(drinks)
       res.render('single-drink', {
         drinks,
         loggedIn: req.session.loggedIn
@@ -110,9 +110,6 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
-
-
-
 router.get('/drinks', (req, res) => {
   Drink.findAll({
       attributes: [
