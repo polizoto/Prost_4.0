@@ -10,36 +10,32 @@ router.get("/drink/:id", (req, res) => {
   Drink.findAll({
     where: {
       id: req.params.id,
-    }
-    // attributes: [
-    //   "id",
-    //   "image_url",
-    //   "name",
-    //   "category_id",
-    //   "ingredients",
-    //   "glass_type",
-    //   "instructions",
-    //   [
-    //     sequelize.literal(
-    //       "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-    //     ),
-    //     "star_count",
-    //   ],
-    // ],
-    // include: [
-    //   {
-    //     model: Comment,
-    //     attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
-    //     include: {
-    //       model: User,
-    //       attributes: ["username"],
-    //     },
-    //   },
-    //   {
-    //     model: User,
-    //     attributes: ["username"],
-    //   },
-    // ],
+    },
+    attributes: [
+      "id",
+      "image_url",
+      "name",
+      "category_id",
+      "ingredients",
+      "glass_type",
+      "instructions",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+        ),
+        "star_count",
+      ],
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      }
+    ],
   })
     .then((dbDrinkData) => {
       if (!dbDrinkData) {
@@ -47,7 +43,7 @@ router.get("/drink/:id", (req, res) => {
         return;
       }
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      // res.json(drinks)
+      res.json(drinks)
       res.render('single-drink', {
         drinks,
         loggedIn: req.session.loggedIn
