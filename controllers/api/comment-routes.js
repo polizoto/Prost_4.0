@@ -3,15 +3,16 @@ const withAuth = require("../../utils/auth");
 const { Comment } = require("../../models");
 
 // create comment
-router.post("/", withAuth, (req,res) => {
+router.post("/", (req,res) => {
+    console.log(req.session)
     if (req.session) {
     Comment.create({
         comment_text: req.body.comment_text,
-        // user_id: req.body.user_id,
         user_id: req.session.user_id,
         drink_id: req.body.drink_id
     })
     .then(commentData => {
+        // console.log('commentData:', commentData)
         res.json(commentData)
     })
     .catch(err => {
