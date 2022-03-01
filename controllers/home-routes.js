@@ -38,14 +38,16 @@ router.get("/drink/:id", (req, res) => {
     ],
   })
     .then((dbDrinkData) => {
+      
       if (!dbDrinkData) {
         res.status(404).json({ message: "No drink found with this id" });
         return;
       }
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      // res.json(drinks)
+      console.log('!!!!!!!!!!!!!!!', drinks)
+      //res.json(drinks)
       res.render('single-drink', {
-        drinks,
+        drinks: drinks[0],
         loggedIn: req.session.loggedIn
       });
     })
@@ -110,7 +112,10 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
-router.get('/drinks', (req, res) => {
+
+
+
+/*router.get('/drinks', (req, res) => {
   Drink.findAll({
       attributes: [
         "id",
@@ -154,7 +159,7 @@ router.get('/drinks', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+});*/
 // find all gin drinks
 router.get("/gin", (req, res) => {
     Drink.findAll({
