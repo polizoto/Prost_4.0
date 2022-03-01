@@ -18,15 +18,13 @@ async function commentFormHandler(event) {
           'Content-Type': 'application/json'
         }
       });
-  
+
       if (response.ok) {
         console.log('response:', response)
-  
         document.location.reload();
       } else {
         alert(response.statusText);
       }
     }
   }
-  
   document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
