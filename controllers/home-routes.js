@@ -66,10 +66,9 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
-
 // find drink by id
 router.get("/drink/:id", (req, res) => {
-  Drink.findOne({
+  Drink.findAll({
     where: {
       id: req.params.id,
     },
@@ -116,6 +115,7 @@ router.get("/drink/:id", (req, res) => {
       });
     })
 });
+
 
 router.get('/drinks', (req, res) => {
   Drink.findAll({
