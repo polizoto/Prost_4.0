@@ -1,11 +1,18 @@
+let heartBtn = document.querySelector('.card-deck');
+
 async function favClickHandler(event) {
     event.preventDefault();
+    console.log(event)
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    // const id = window.location.toString().split('/')[
+    //     window.location.toString().split('/').length - 1
+    // ];
 
-    const response = await fetch('/api/addStar', {
+    //if(event.target.className)
+    const id = event.target.previousElementSibling.className;
+    console.log(id)
+
+    const response = await fetch('/api/drinks/addStar', {
         method: 'PUT',
         body: JSON.stringify({
             drink_id: id
@@ -20,4 +27,4 @@ async function favClickHandler(event) {
     }
 }
 
-document.querySelector('.heart').addEventListener('click', favClickHandler);
+heartBtn.addEventListener('click', favClickHandler);

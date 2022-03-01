@@ -114,10 +114,27 @@ router.get("/favorites", (req, res) => {
 // addStar to Drink
 router.put("/addStar", (req, res) => {
   if (req.session) {
-    Drink.addStar(
-      { ...req.body, user_id: req.session.user_id },
-      { Star, Comment, User }
+    Drink.findOne({
+      where: {
+        drink_id: req.body.drink_id
+      }
+    })
+    .then(drinkData => {
+      console.log(drinkData.drinkVote);
+      let drinkVote = drinkData.drinkVote;
+      Drink.update(
+        {
+          drinkVote: drinkVote++
+        },
+        {
+          where: {
+            drink_id: req.body.drink_id
+          }
+        }
     )
+      // { ...req.body, user_id: req.session.user_id },
+      // { Star, Comment, User }
+      })
       .then((updatedStarData) => res.json(updatedStarData))
       .catch((err) => {
         console.log(err);
