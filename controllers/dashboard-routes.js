@@ -48,7 +48,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/', withAuth, (req, res) => {
+router.get('/comments', withAuth, (req, res) => {
 
     const starsCount = 1
 
