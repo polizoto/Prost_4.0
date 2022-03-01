@@ -1,0 +1,48 @@
+{{> nav/nav}}
+{{> nav/login}}
+
+<h1>Welcome {{username}}</h1>
+
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#drinks" type="button" role="tab" aria-controls="drinks" aria-selected="true">Your Drinks</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#comments" type="button" role="tab" aria-controls="comments" aria-selected="false">Your Comments</button>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="drinks" role="tabpanel" aria-labelledby="drinks-tab">
+        <div class="card-deck">
+            {{#each drinks}}
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="/images/{{name}}.jpg" alt="a drink" style="width:270px;height:400px">
+                        </div>
+                        <div class="flip-card-back">
+                            <a href='/drink/{{id}}'><h1 id="cocktail-header">{{name}}</h1></a>
+                            <i class="fa-regular fa-heart heart"></i>
+                            <ul>
+                                {{list-item ingredients}}
+                                <li>{{glass_type}}</li>
+                                <li>{{instructions}}</li>
+                            </ul>
+                    
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="comments" role="tabpanel" aria-label="comments-tab">
+
+        
+    </div>
+</div>
+
+
+    
+
+
+
+
