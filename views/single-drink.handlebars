@@ -12,8 +12,17 @@
     <img src="/images/{{drinks.name}}.jpg" class="card-img-top" alt="...">
     <div class="card-body">
         <h1>{{ drinks.name }}</h1>
+<<<<<<< HEAD
         {{> nav/comments drinks.comments}}
 >>>>>>> 84fdc30e968c1b94c7f9ae75568d76f99d978f32
+=======
+
+        <ul>
+            <li>{{drinks.ingredients}}</li>
+            <li>{{drinks.glass_type}}</li>
+            <li>{{drinks.instructions}}</li>
+        </ul>
+>>>>>>> fab0e88930d67aaa8020ac50a354d3a17ab5afd4
 
         <form class="comment-form">
         <div>
@@ -26,6 +35,7 @@
         </div>
         </form>
 
+        {{> nav/comments drinks.comments}}
 
 
     </div>
