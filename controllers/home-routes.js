@@ -120,53 +120,6 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-
-
-/*router.get('/drinks', (req, res) => {
-  Drink.findAll({
-      attributes: [
-        "id",
-        "image_url",
-        "name",
-        "category_id",
-        "ingredients",
-        "glass_type",
-        "instructions",
-        [
-          sequelize.literal(
-            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-          ),
-          "star_count",
-        ],
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
-          include: {
-            model: User,
-            attributes: ["username"],
-          },
-        },
-        {
-          model: Category,
-          attributes: ["id", "name"]
-        },
-      ],
-    })
-    .then(dbDrinkData => {
-      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-
-      res.render('drinks', {
-        drinks,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});*/
 // find all gin drinks
 router.get("/gin", (req, res) => {
     Drink.findAll({
