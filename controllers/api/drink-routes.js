@@ -3,6 +3,7 @@ const { Drink, Comment, User, Category, Star } = require("../../models");
 const withAuth = require("../../utils/auth");
 const sequelize = require("../../config/connection");
 
+
 // find a drink by searched name
 router.get("/:name", (req, res) => {
   Drink.findAll({
@@ -38,33 +39,33 @@ router.get("/", (req, res) => {
   Drink.findAll({
     attributes: [
       "id",
-      "image_url",
+      // "image_url",
       "name",
-      "category_id",
-      "ingredients",
-      "glass_type",
-      "instructions",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-        ),
-        "star_count",
-      ],
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: Category,
-        attributes: ["id", "name"],
-      },
-    ],
+      // "category_id",
+      // "ingredients",
+      // "glass_type",
+      // "instructions",
+      // [
+      //   sequelize.literal(
+      //     "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+      //   ),
+      //   "star_count",
+      // ],
+    ]
+    // include: [
+    //   {
+    //     model: Comment,
+    //     attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
+    //     include: {
+    //       model: User,
+    //       attributes: ["username"],
+    //     },
+    //   },
+    //   {
+    //     model: Category,
+    //     attributes: ["id", "name"],
+    //   },
+    // ],
   })
     .then((dbDrinkData) => {
       if (!dbDrinkData) {
