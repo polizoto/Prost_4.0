@@ -6,7 +6,12 @@
     <img src="/images/{{drinks.name}}.jpg" class="card-img-top" alt="...">
     <div class="card-body">
         <h1>{{ drinks.name }}</h1>
-        {{> nav/comments drinks.comments}}
+
+        <ul>
+            <li>{{drinks.ingredients}}</li>
+            <li>{{drinks.glass_type}}</li>
+            <li>{{drinks.instructions}}</li>
+        </ul>
 
         <form class="comment-form">
         <div>
@@ -19,6 +24,7 @@
         </div>
         </form>
 
+        {{> nav/comments drinks.comments}}
 
 
     </div>
