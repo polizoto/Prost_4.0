@@ -19,21 +19,24 @@
                     <div class="tab-content">
                         <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
                             <!--body-->
+                            <form id="login-form">
                             <div class="modal-body">
                                 <div class="md-form form-sm mb-3">
                                     <i class="fas fa-envelope prefix"></i>
-                                    <input type="email" id="modalInput1" class="form-control form-control-sm validate" placeholder="Your Email">
+                                    <input type="email" id="email-login" class="form-control form-control-sm validate" placeholder="Your Email">
                                     <label data-error="wrong" data-success="right" for="modalInput1"></label>
                                 </div>
                                 <div class="md-form form-sm mb-3">
                                     <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="modalInput2" class="form-control form-control-sm validate" placeholder="Your Password">
+                                    <input type="password" id="password-login" class="form-control form-control-sm validate" placeholder="Your Password">
                                     <label data-error="wrong" data-success="right" for="modalInput2"></label>
                                 </div>
                                 <div class="text-center mt-2">
-                                    <button class="btn btn-info">Log In <i class="fas fa-sign-in ml-1"></i></button>
+                                    <button type="submit" class="btn btn-info">Log In <i class="fas fa-sign-in ml-1"></i></button>
                                 </div>    
                             </div>
+                            </form>
+
                             <!--footer-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
@@ -42,29 +45,30 @@
                         </div>
 
                         <div class="tab-pane fade" id="panel2" role="tabpanel">
-                            <div class="modal-body">
-                                <div class="md-form form-sm mb-3">
-                                    <i class="fas fa-user prefix"></i>
-                                    <input type="input" id="modalInput4" class="form-control form-control-sm validate" placeholder="Your Username">
-                                    <label data-error="wrong" data-success="right" for="modalInput4"></label>
+                            <form id="signup-form">
+                                <div class="modal-body">
+                                    <div class="md-form form-sm mb-3">
+                                        <i class="fas fa-user prefix"></i>
+                                        <input type="input" id="username-signup" class="form-control form-control-sm validate" placeholder="Your Username">
+                                        <label data-error="wrong" data-success="right" for="modalInput4"></label>
+                                    </div>
+                                    <div class="md-form form-sm mb-3">
+                                        <i class="fas fa-envelope prefix"></i>
+                                        <input type="email" id="email-signup" class="form-control form-control-sm validate" placeholder="Your Email">
+                                        <label data-error="wrong" data-success="right" for="modalInput4"></label>
+                                    </div>
+                                    <div class="md-form form-sm mb-4">
+                                        <i class="fas fa-lock prefix"></i>
+                                        <input type="password" id="password-signup" class="form-control form-control-sm validate" placeholder="Your Password">
+                                        <label data-error="wrong" data-success="right" for="modalInput5"></label>
+                                    </div>
+                                    <div class="text-center mt-2">
+                                        <button type="submit" class="btn btn-info">Sign Up! <i class="fas fa-sign-in ml-1"></i></button>
+                                    </div>    
                                 </div>
-                                <div class="md-form form-sm mb-3">
-                                    <i class="fas fa-envelope prefix"></i>
-                                    <input type="email" id="modalInput4" class="form-control form-control-sm validate" placeholder="Your Email">
-                                    <label data-error="wrong" data-success="right" for="modalInput4"></label>
-                                </div>
-                                <div class="md-form form-sm mb-4">
-                                    <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="modalInput5" class="form-control form-control-sm validate" placeholder="Your Password">
-                                    <label data-error="wrong" data-success="right" for="modalInput5"></label>
-                                </div>
-                                <div class="text-center mt-2">
-                                    <button class="btn btn-info">Log In <i class="fas fa-sign-in ml-1"></i></button>
-                                </div>    
-                            
-                            </div>
+                            </form>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -73,4 +77,4 @@
         </div>
     </div>
 </div>
-<script src="/login.js"></script>
+<script src="/javascript/login.js"></script>
