@@ -52,6 +52,7 @@ router.get("/drink/:id", (req, res) => {
       });
     })
 });
+
 router.get('/drinks', (req, res) => {
     Drink.findAll({
         attributes: [
