@@ -5,7 +5,55 @@ const { Category, User, Star, Comment, Drink } = require('../models');
 router.get('/', (req, res) => {
   res.render('homepage');
 })
-
+// find drink by id
+router.get("/drink/:id", (req, res) => {
+  Drink.findAll({
+    where: {
+      id: req.params.id,
+    }
+    // attributes: [
+    //   "id",
+    //   "image_url",
+    //   "name",
+    //   "category_id",
+    //   "ingredients",
+    //   "glass_type",
+    //   "instructions",
+    //   [
+    //     sequelize.literal(
+    //       "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+    //     ),
+    //     "star_count",
+    //   ],
+    // ],
+    // include: [
+    //   {
+    //     model: Comment,
+    //     attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
+    //     include: {
+    //       model: User,
+    //       attributes: ["username"],
+    //     },
+    //   },
+    //   {
+    //     model: User,
+    //     attributes: ["username"],
+    //   },
+    // ],
+  })
+    .then((dbDrinkData) => {
+      if (!dbDrinkData) {
+        res.status(404).json({ message: "No drink found with this id" });
+        return;
+      }
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      // res.json(drinks)
+      res.render('single-drink', {
+        drinks,
+        loggedIn: req.session.loggedIn
+      });
+    })
+});
 router.get('/drinks', (req, res) => {
     Drink.findAll({
         attributes: [
@@ -66,55 +114,7 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
-// find drink by id
-router.get("/drink/:id", (req, res) => {
-  Drink.findAll({
-    where: {
-      id: req.params.id,
-    },
-    attributes: [
-      "id",
-      "image_url",
-      "name",
-      "category_id",
-      "ingredients",
-      "glass_type",
-      "instructions",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-        ),
-        "star_count",
-      ],
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
-        model: User,
-        attributes: ["username"],
-      },
-    ],
-  })
-    .then((dbDrinkData) => {
-      if (!dbDrinkData) {
-        res.status(404).json({ message: "No drink found with this id" });
-        return;
-      }
-      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
 
-      res.render('single-drink', {
-        drinks,
-        loggedIn: req.session.loggedIn
-      });
-    })
-});
 
 
 router.get('/drinks', (req, res) => {
