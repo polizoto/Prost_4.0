@@ -1,14 +1,13 @@
 .body {
     text-align: center;
     background-color: lightgray;
-    font-family: 'Special Elite';
+    font-family: 'Playfair Display SC';
 }
 /* nav */
 .main-header {
     text-align: center;
     background-color: #212529;
     color: white;
-    font-family: 'Special Elite';
     font-size: 100px;
     width: 100%;
     margin: 0 0 5px 0;
