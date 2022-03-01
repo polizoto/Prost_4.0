@@ -4,14 +4,15 @@ const { Comment } = require("../../models");
 
 // create comment
 router.post("/", (req,res) => {
+
+    console.log (req.session)
     if (req.session) {
     Comment.create({
         comment_text: req.body.comment_text,
-        user_id: req.session.id,
+        user_id: req.session.user_id,
         drink_id: req.body.drink_id
     })
     .then(commentData => {
-        console.log('commentData:', commentData)
         res.json(commentData)
     })
     .catch(err => {
