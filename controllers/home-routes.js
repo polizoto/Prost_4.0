@@ -44,10 +44,18 @@ router.get("/drink/:id", (req, res) => {
         return;
       }
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      console.log('!!!!!!!!!!!!!!!', drinks)
-      //res.json(drinks)
+      // make an array from string of ingredient items
+      const drinkItems = drinks[0].ingredients.split(',');
+      // make object with separate items from array
+      let ingredients = []
+      function getIngredients(item, index) {
+        let object = { ingredient: index + 1, item: item.trim(), }
+        ingredients[index] = object
+    }
+    drinkItems.forEach((name, index) => getIngredients(name, index));
       res.render('single-drink', {
         drinks: drinks[0],
+        ingredients: ingredients,
         loggedIn: req.session.loggedIn
       });
     })
@@ -86,9 +94,7 @@ router.get('/drinks', (req, res) => {
         ],
       })
       .then(dbDrinkData => {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!',dbDrinkData);
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-  
         res.render('drinks', {
           drinks,
           loggedIn: req.session.loggedIn
@@ -114,53 +120,6 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-
-
-/*router.get('/drinks', (req, res) => {
-  Drink.findAll({
-      attributes: [
-        "id",
-        "image_url",
-        "name",
-        "category_id",
-        "ingredients",
-        "glass_type",
-        "instructions",
-        [
-          sequelize.literal(
-            "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-          ),
-          "star_count",
-        ],
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
-          include: {
-            model: User,
-            attributes: ["username"],
-          },
-        },
-        {
-          model: Category,
-          attributes: ["id", "name"]
-        },
-      ],
-    })
-    .then(dbDrinkData => {
-      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-
-      res.render('drinks', {
-        drinks,
-        loggedIn: req.session.loggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});*/
 // find all gin drinks
 router.get("/gin", (req, res) => {
     Drink.findAll({

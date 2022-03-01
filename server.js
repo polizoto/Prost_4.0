@@ -7,6 +7,25 @@ const helpers = require('./utils/index');
 const hbs = exphbs.create({ helpers });
 const session = require('express-session');
 
+// register list-item helper to display all drinks on separate lines
+hbs.handlebars.registerHelper('list-item', function(text) {
+
+  const drinks = text.split(',')
+
+  let individualIngredients = []
+        function getIngredients(item, index) {
+        let object = { ingredient: index + 1, item: item.trim(), }
+        individualIngredients[index] = object
+    }
+      drinks.forEach((name, index) => getIngredients(name, index));
+
+  const newIngredientList = []
+       for (let i = 0; i < individualIngredients.length; i++) {
+          newIngredientList.push("<li>" + hbs.handlebars.escapeExpression(individualIngredients[i].item) + "</li>")
+        }
+  return new hbs.handlebars.SafeString(newIngredientList.join(""));
+});
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {

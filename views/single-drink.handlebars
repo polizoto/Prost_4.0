@@ -7,7 +7,9 @@
         <h1>{{ drinks.name }}</h1>
 
         <ul>
-            <li>{{drinks.ingredients}}</li>
+            {{#each ingredients}}
+            <li>{{item}}</li>
+            {{/each}}
             <li>{{drinks.glass_type}}</li>
             <li>{{drinks.instructions}}</li>
         </ul>
