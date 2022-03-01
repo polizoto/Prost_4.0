@@ -2,9 +2,11 @@
 {{> nav/login}}
 
         
-<div class="single-card" style="width:18rem;">
-    <img src="/images/{{name}}" class="card-img-top" alt="...">
+<div class="card" style="width:18rem;">
+    <img src="/images/{{drinks.name}}.jpg" class="card-img-top" alt="...">
     <div class="card-body">
+        <h1>{{ drinks.name }}</h1>
+        {{> nav/comments drinks.comments}}
 
         <form class="comment-form">
         <div>
