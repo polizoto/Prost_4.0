@@ -94,9 +94,7 @@ router.get('/drinks', (req, res) => {
         ],
       })
       .then(dbDrinkData => {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!',dbDrinkData);
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-  
         res.render('drinks', {
           drinks,
           loggedIn: req.session.loggedIn
