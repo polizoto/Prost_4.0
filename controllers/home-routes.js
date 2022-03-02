@@ -40,6 +40,7 @@ router.get("/drink/:id", (req, res) => {
         },
       }
     ],
+    order: [[sequelize.literal('name'), 'ASC']],
   })
     .then((dbDrinkData) => {
       
@@ -96,6 +97,7 @@ router.get('/drinks', (req, res) => {
             attributes: ["id", "name"]
           },
         ],
+        order: [[sequelize.literal('name'), 'ASC']],
       })
       .then(dbDrinkData => {
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
@@ -151,6 +153,7 @@ router.get("/gin", (req, res) => {
           attributes: ["id"],
         },
       ],
+      order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
@@ -192,7 +195,7 @@ router.get("/whiskey", (req, res) => {
           attributes: ["id"],
         },
       ],
-      order: [[sequelize.literal('name'), 'DESC']],
+      order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
@@ -233,6 +236,7 @@ router.get("/tequila", (req, res) => {
           attributes: ["id"],
         },
       ],
+      order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
@@ -273,6 +277,7 @@ router.get("/vodka", (req, res) => {
           attributes: ["id"],
         },
       ],
+      order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
@@ -313,6 +318,7 @@ router.get('/rum', (req, res) => {
           attributes: ["id"],
         },
       ],
+      order: [[sequelize.literal('name'), 'ASC']],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
@@ -353,6 +359,7 @@ router.get('/brandy', (req, res) => {
           attributes: ["id"],
         },
       ],
+      order: [[sequelize.literal('name'), 'ASC']],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
@@ -393,6 +400,7 @@ router.get('/cordials', (req, res) => {
           attributes: ["id"],
         },
       ],
+      order: [[sequelize.literal('name'), 'ASC']],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
