@@ -15,6 +15,13 @@ enjoy an authentic Alley Twenty Six cocktail from home!</p>
 <br>
 <br>
 
+## Installation
+
+<p>After installing npm packages, run </p>
+```
+nodemon server.js
+```
+
 ## Authors
 
 - [John McNair](https://github.com/mcnairjm)
@@ -32,7 +39,7 @@ enjoy an authentic Alley Twenty Six cocktail from home!</p>
 - [Github](https://github.com/polizoto/Prost_4.0)
 - [Heroku](placeholder here)
 <br>
-<img src="/public/images/readme1.png" width="400">
+<img src="../public/images/readme1.png" width="400">
 
 ## Technologies
 
