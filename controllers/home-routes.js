@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/dashboard', (req, res) => {
-  res.render('dashboard');
+  res.render('/dashboard');
 })
 // find drink by id
 router.get("/drink/:id", (req, res) => {
