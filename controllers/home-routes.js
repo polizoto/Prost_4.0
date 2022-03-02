@@ -3,7 +3,8 @@ const sequelize = require('../config/connection');
 const { Category, User, Star, Comment, Drink } = require('../models');
 
 router.get('/', (req, res) => {
-  res.render('homepage', {
+  res.render('homepage', { 
+    loggedIn: req.session.loggedIn, 
     style: 'style.css'
   });
 })

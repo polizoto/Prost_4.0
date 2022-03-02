@@ -2,6 +2,7 @@
     text-align: center;
     background-color: lightgray;
     font-family: 'Playfair Display SC';
+    
 }
 /* nav */
 .main-header {
@@ -29,6 +30,11 @@
     margin-top: 0rem!important;
     margin-bottom: 1rem!important;
   }
+.container-fluid {
+    padding-right: var(--bs-gutter-x,-1.25rem);
+    padding-left: var(--bs-gutter-x,-0.25rem);
+
+}
 
 /*sign up modal*/
 .form-dark .font-small {
@@ -94,6 +100,8 @@
     margin: 0 auto;
     float: none;
     margin-bottom: 10px;
+    background-color: black;
+    color: white;
 }
 
 .row {
@@ -105,6 +113,10 @@
     height: 80%;
     width: 100%;
 }
+
+.instructions {
+    padding-left: 0rem;
+  }
 
 .comment h4 {
     display: inline
