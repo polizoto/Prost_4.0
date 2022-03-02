@@ -16,9 +16,14 @@
                 <div class="flip-card-back">
                 <a href='/drink/{{id}}' class="{{id}}"><h1 class='cocktail-header' id="cocktail-header">{{name}}</h1></a>
                     <ul>
+                        <li style="list-style-type: none;"><strong>Ingredients</strong></li> 
                         {{list-item ingredients}}
-                        <li>{{glass_type}}</li>
+                        <li style="list-style-type: none;"><strong>Glass:</strong></li>
+                        <li>{{glass_type}}</li>                        
+                        <li style="list-style-type: none;"><strong>Instructions:</strong></li>
+                        <ol>
                         {{list-instructions instructions}}
+                        </ol>
                     </ul>
               
                 </div>
