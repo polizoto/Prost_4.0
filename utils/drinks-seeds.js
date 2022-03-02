@@ -82,14 +82,6 @@ const drinkdata = [
     instructions: "Shake and dbl strain, Sparkling Brut to Hemisphere, Fancy lemon twist"
   },
   {
-    name: 'Mojito',
-    image_url: 'placeholder',
-    category_id: 5,
-    ingredients: "¾ oz Green Chartreuse, ¾ oz Maraschino, ¾ oz Lime juice, ¾ oz Gin",
-    glass_type: "Collins",
-    instructions: "Shake and strain, No Garnish"
-  },
-  {
     name: 'Sazerac',
     image_url: 'placeholder',
     category_id: 2,
@@ -210,7 +202,7 @@ const drinkdata = [
     instructions: "10 count shake & strain on fresh ice, Top with Soda, Sink Lime Wheel"
   },
   {
-    name: 'Pimm’s Cup',
+    name: 'Pimms Cup',
     image_url: 'placeholder',
     category_id: 7,
     ingredients: "2 oz Pimm’s No 1, ¾ oz Ginger, ¾ oz Lemon",
