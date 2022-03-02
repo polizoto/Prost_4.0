@@ -73,6 +73,10 @@
     text-align: center;
 }
 
+.h3 {
+  font-size: 80px;
+}
+
 .card-deck {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
