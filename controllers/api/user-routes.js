@@ -2,16 +2,16 @@ const router = require('express').Router();
 const { Category, User, Star, Comment, Drink } = require('../../models');
 
 
-router.get('/', (req, res) => {
-  User.findAll({
-    attributes: { exclude: ['password'] }
-  })
-    .then(dbUserData => res.json(dbUserData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.get('/', (req, res) => {
+//   User.findAll({
+//     attributes: { exclude: ['password'] }
+//   })
+//     .then(dbUserData => res.json(dbUserData))
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.get('/:id', (req, res) => {
   User.findOne({
@@ -57,13 +57,14 @@ router.get('/:id', (req, res) => {
     });
 });
 // sign up route
-router.get('/', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('signup');
-});
+// router.get('/', (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect('/');
+//     return;
+//   }
+//   res.render('signup');
+// });
+
 router.post('/', (req, res) => {
     User.create({
       username: req.body.username,
@@ -91,6 +92,7 @@ router.post('/', (req, res) => {
       }
     }).then(dbUserData => {
       if (!dbUserData) {
+
         res.status(400).json({ message: 'No user with that email address!' });
         return;
       }
