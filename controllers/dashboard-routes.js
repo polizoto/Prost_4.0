@@ -47,11 +47,6 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(dbDrinkData => {
       res.json(dbDrinkData)
-      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
-      res.render('dashboard', {
-        drinks,
-        loggedIn: req.session.loggedIn
-      });
     })
     .catch(err => {
       console.log(err);
