@@ -126,16 +126,16 @@
 }
 
 #cord-box {
-    height: 252px;
+    height: 268px;
 }
 
 #cord-pic {
-    height: 237px;
+    height: 218px;
 }
 
 #cordials {
-    font-size: 2rem;
-    height: 50px;
+    font-size: 4rem;
+    height: 73px;
 }
 /* favorites */
 #flip-card-deck {
