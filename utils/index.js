@@ -7,7 +7,7 @@ const sequelize = require('../config/connection');
 
 const seedAll = async () => {
     await sequelize.sync({ force: false });
-    // console.log('--------------');
+     //console.log('--------------');
 
     await seedCategories();
     console.log('--------------');
@@ -26,7 +26,7 @@ const seedAll = async () => {
     
   };
   
-  // seedAll();
+   //seedAll();
 
   module.exports = {
     format_date: date => {
