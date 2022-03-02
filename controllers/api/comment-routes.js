@@ -60,6 +60,7 @@ router.get("/:id", (req,res)=> {
     })
     .then(commentData => {
         res.json(commentData)
+        
     })
     .catch(err => {
         console.log(err);

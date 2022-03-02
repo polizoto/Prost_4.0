@@ -34,19 +34,24 @@ router.get('/', withAuth, (req, res) => {
               attributes: ['id']
             },
           ],
-          include: [
-            {
-              model: User,
-              where: {
-                // use the ID from the session
-                id: req.session.user_id
-              },
-              attributes: ['username']
-            },
-          ],
+          // include: [
+          //   {
+          //     model: User,
+          //     where: {
+          //       // use the ID from the session
+          //       id: req.session.user_id
+          //     },
+          //     attributes: ['username']
+          //   },
+          // ],
     })
     .then(dbDrinkData => {
       res.json(dbDrinkData)
+      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      res.render('dashboard', {
+        drinks,
+        loggedIn: req.session.loggedIn
+      });
     })
     .catch(err => {
       console.log(err);
