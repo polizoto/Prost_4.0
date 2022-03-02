@@ -27,11 +27,15 @@
 
         <form class="comment-form">
         <div>
+            {{#if loggedIn}}
             <textarea name="comment-body"></textarea>
         </div>
         <div>
             <button type="submit">add comment</button>
             <button type="button" class="favorite-btn">Add to Favorites</button>
+            {{else}}
+            <br>
+            {{/if}}
         </div>
         </form>
         {{> nav/comments drinks.comments}}

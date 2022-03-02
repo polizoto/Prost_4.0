@@ -61,7 +61,11 @@ const PORT = process.env.PORT || 3001;
 
 app.use(session(sess));
 app.use(express.json());
+<<<<<<< HEAD
 app.use(express.urlencoded({ extended: true}));
+=======
+app.use(express.urlencoded({ extended: false }));
+>>>>>>> 3a32c0ab727ca327f4aac3a09d677fb999b26d1f
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.engine('handlebars', hbs.engine);
