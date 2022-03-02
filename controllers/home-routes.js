@@ -184,6 +184,7 @@ router.get("/whiskey", (req, res) => {
           ),
           "star_count",
         ],
+        
       ],
       include: [
         {
@@ -191,6 +192,7 @@ router.get("/whiskey", (req, res) => {
           attributes: ["id"],
         },
       ],
+      order: [[sequelize.literal('name'), 'DESC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
