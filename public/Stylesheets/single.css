@@ -1,0 +1,140 @@
+.body {
+    text-align: center;
+    background-color: lightgray;
+    font-family: 'Playfair Display SC';
+}
+/* nav */
+.main-header {
+    text-align: center;
+    background-color: #212529;
+    color: white;
+    font-size: 100px;
+    width: 100%;
+    margin: 0 0 5px 0;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/*sign up modal*/
+.form-dark .font-small {
+    font-size: 0.8rem; }
+  
+  .form-dark [type="radio"] + label,
+  .form-dark [type="checkbox"] + label {
+    font-size: 0.8rem; }
+  
+  .form-dark [type="checkbox"] + label:before {
+    top: 2px;
+    width: 15px;
+    height: 15px; }
+  
+  .form-dark .md-form label {
+    color: #fff; }
+  
+  .form-dark input[type=email]:focus:not([readonly]) {
+    border-bottom: 1px solid #00C851;
+    -webkit-box-shadow: 0 1px 0 0 #00C851;
+    box-shadow: 0 1px 0 0 #00C851; }
+  
+  .form-dark input[type=email]:focus:not([readonly]) + label {
+    color: #fff; }
+  
+  .form-dark input[type=password]:focus:not([readonly]) {
+    border-bottom: 1px solid #00C851;
+    -webkit-box-shadow: 0 1px 0 0 #00C851;
+    box-shadow: 0 1px 0 0 #00C851; }
+  
+  .form-dark input[type=password]:focus:not([readonly]) + label {
+    color: #fff; }
+
+
+  #c-tabs {
+      padding-left: 114px;
+  }
+
+
+  
+  #modal-card {
+      height:570px;
+      background-size: 510px 570px;
+  }
+ 
+  .modal-content {
+      border-radius: 5.3;
+  }
+
+  .mb-5 {
+      margin-bottom: 1rem!important;
+  }
+  
+  .form-dark .modal-header {
+      border-bottom: none;
+  }
+
+/* single card */
+
+.card {
+   /* margin: 20px 50px 10px 140px; */
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+
+.row {
+    --bs-gutter-x: -0.5rem !important;
+    width: 782px;
+}
+
+.card-img {
+    height: 80%;
+    width: 100%;
+}
+
+.comment h4 {
+    display: inline
+}
+
+.comment p {
+    color: blue;
+}
+
+#comment-section {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+
+.container {
+    width: 400px;
+}
+
+.second {
+    width: 350px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 10px 10px 5px #aaaaaa
+}
+
+.text1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #56575b;
+}
+
+@media all {
+    
+    li {
+        list-style-position: outside;
+        overflow: hidden;
+    }
+}
