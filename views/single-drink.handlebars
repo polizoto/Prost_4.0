@@ -7,12 +7,23 @@
         <h1>{{ drinks.name }}</h1>
 
         <ul>
+            <li style="list-style-type: none;"><strong>Ingredients</strong></li>
             {{#each ingredients}}
             <li>{{item}}</li>
             {{/each}}
-            <li>{{drinks.glass_type}}</li>
-            <li>{{drinks.instructions}}</li>
+            <li style="list-style-type: none;"><strong>Glass:</strong></li> 
+            <li style="list-style-type: none;">{{drinks.glass_type}}</li>
+            <li style="list-style-type: none;"><strong>Instructions:</strong></li>
+            <ol>
+            {{#each instructions}}
+            
+                <li>{{item}}</li>
+            
+            {{/each}}
+            </ol>
         </ul>
+
+        <h3>Favorites: {{drinks.star_count}}</h3>
 
         <form class="comment-form">
         <div>

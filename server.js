@@ -26,6 +26,24 @@ hbs.handlebars.registerHelper('list-item', function(text) {
   return new hbs.handlebars.SafeString(newIngredientList.join(""));
 });
 
+hbs.handlebars.registerHelper('list-instructions', function(text) {
+
+  const drinks = text.split(',')
+
+  let individualInstructions = []
+        function getInstructions(item, index) {
+        let object = { instruction: index + 1, item: item.trim(), }
+        individualInstructions[index] = object
+    }
+      drinks.forEach((name, index) => getInstructions(name, index));
+
+  const newInstructionList = []
+       for (let i = 0; i < individualInstructions.length; i++) {
+          newInstructionList.push("<li>" + hbs.handlebars.escapeExpression(individualInstructions[i].item) + "</li>")
+        }
+  return new hbs.handlebars.SafeString(newInstructionList.join(""));
+});
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
