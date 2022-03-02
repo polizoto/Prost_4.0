@@ -15,13 +15,19 @@
 
 .navbar-nav {
     display: flex;
-    flex-direction: row;
+    flex-direction: column !important;
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
     align-content: center;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-wrap: nowrap !important;
+}
+
+.my-3 {
+  margin-top: 0rem!important;
+  margin-bottom: 1rem!important;
 }
 
 /*hero*/
