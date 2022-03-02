@@ -34,6 +34,16 @@ router.get('/', withAuth, (req, res) => {
               attributes: ['id']
             },
           ],
+          include: [
+            {
+              model: User,
+              where: {
+                // use the ID from the session
+                id: req.session.user_id
+              },
+              attributes: ['username']
+            },
+          ],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
