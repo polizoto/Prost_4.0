@@ -148,8 +148,8 @@
 
 .flip-card {
     background-color: transparent;
-    width: 270px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     perspective: 1000px;
     margin-left: 50px;
 }
@@ -185,6 +185,15 @@
     background-color: rgb(105, 100, 100);
     color: white;
     transform: rotateY(180deg);
+}
+
+.back-list {
+  margin-right: 3.5rem;
+  margin-top:19px;
+}
+
+.instructions {
+  padding-left: 0rem;
 }
 
 /*sign up modal*/
@@ -305,3 +314,11 @@
   .results ul li:hover {
     background: #ececec
   }
+
+  @media all {
+    
+    li {
+        list-style-position: outside;
+        overflow: hidden;
+    }
+}
