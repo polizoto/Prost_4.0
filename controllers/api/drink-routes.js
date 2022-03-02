@@ -112,13 +112,12 @@ router.get("/favorites", (req, res) => {
       res.status(500).json(err);
     });
 });
-// addStar to Drink
-router.put("/addStar", (req, res) => {
+router.post("/addStar", (req, res) => {
   if (req.session) {
-    Drink.addStar(
-      { ...req.body, user_id: req.session.user_id },
-      { Star, Comment, User }
-    )
+    Star.create({
+      user_id: req.session.user_id,
+      drink_id: req.body.drink_id
+    })
       .then((updatedStarData) => res.json(updatedStarData))
       .catch((err) => {
         console.log(err);
@@ -126,5 +125,8 @@ router.put("/addStar", (req, res) => {
       });
   }
 });
+
+
+
 
 module.exports = router;
