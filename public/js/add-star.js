@@ -38,13 +38,13 @@ async function upvoteClickHandler(event) {
       window.location.toString().split('/').length - 1
     ];
     const response = await fetch('/api/drinks/addStar', {
-      method: 'PUT',
+      method: 'POST',
       body: JSON.stringify({
         drink_id: id
       }),
-      /*headers: {
+      headers: {
         'Content-Type': 'application/json'
-      }*/
+      }
     });
   
     if (response.ok) {
