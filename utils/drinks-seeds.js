@@ -130,7 +130,7 @@ const drinkdata = [
     instructions: "Shake and strain, Garnish with candied ginger, mist coupe glass with 3 sprays of Laphroaig"
   },
   {
-    name: 'Bees Knees ',
+    name: 'Bees Knees',
     image_url: 'placeholder',
     category_id: 1,
     ingredients: "2 oz Beefeater gin, ½ oz Honey syrup, ½ oz Lemon",
