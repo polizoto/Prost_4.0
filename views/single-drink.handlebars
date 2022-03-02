@@ -10,8 +10,12 @@
             {{#each ingredients}}
             <li>{{item}}</li>
             {{/each}}
-            <li><strong>Glass:</strong> {{drinks.glass_type}}</li>
-            <li><strong>Instructions:</strong> {{drinks.instructions}}</li>
+            <li style="list-style-type: none;"><strong>Glass:</strong></li> 
+            <li>{{drinks.glass_type}}</li>
+            <li style="list-style-type: none;"><strong>Instructions:</strong></li>
+            {{#each instructions}}
+            <li>{{item}}</li>
+            {{/each}}
         </ul>
 
         <h3>Favorites: {{drinks.star_count}}</h3>
