@@ -322,7 +322,7 @@ const drinkdata = [
     instructions: "Shake and Dbl strain"
   },
   {
-    name: 'Corpse Reviver #2',
+    name: 'Corpse Reviver No2',
     image_url: 'placeholder',
     category_id: 1,
     ingredients: "¾ oz Gin (Beefeater), ¾ oz Cocchi Americano Bianco, ¾ oz Cointreau, ¾ oz Lemon",
@@ -330,7 +330,7 @@ const drinkdata = [
     instructions: "Shake and Dbl strain, Garnish with Absinthe sprayed coupe"
   },
   {
-    name: 'Corpse Reviver #26',
+    name: 'Corpse Reviver No26',
     image_url: 'placeholder',
     category_id: 6,
     ingredients: "¾ oz Fair Game Apple Brandy, ¾ oz Aperol, ¾ oz Lillet Rose, ¾ oz Lemon Juice",
