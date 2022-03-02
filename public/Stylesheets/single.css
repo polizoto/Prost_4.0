@@ -111,7 +111,12 @@
 
 .card-img {
     height: 80%;
-    width: 100%;
+    width: 120%;
+}
+
+.drink-title {
+    margin-bottom: 1.5rem!important;
+    padding-left: 23px;
 }
 
 .instructions {
