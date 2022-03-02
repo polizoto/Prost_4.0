@@ -17,10 +17,8 @@ enjoy an authentic Alley Twenty Six cocktail from home!</p>
 
 ## Installation
 
-<p>After installing npm packages, run </p>
-```
-nodemon server.js
-```
+<p>After installing npm packages, type nodemon server.js and open your browser to localhost:3001.</p>
+
 
 ## Authors
 
