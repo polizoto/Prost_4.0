@@ -7,7 +7,7 @@
 
 
         <div class="card-deck">
-            {{#each drinks}}
+            {{#each user.starred_drinks}}
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -15,13 +15,16 @@
                         </div>
                         <div class="flip-card-back">
                             <a href='/drink/{{id}}'><h1 id="cocktail-header">{{name}}</h1></a>
-                            <i class="fa-regular fa-heart heart"></i>
-                            <ul>
-                                {{list-item ingredients}}
-                                <li>{{glass_type}}</li>
-                                <li>{{instructions}}</li>
-                            </ul>
-                    
+                        <ul>
+                        <li style="list-style-type: none;"><strong>Ingredients</strong></li> 
+                        {{list-item ingredients}}
+                        <li style="list-style-type: none;"><strong>Glass:</strong></li>
+                        <li>{{glass_type}}</li>                        
+                        <li style="list-style-type: none;"><strong>Instructions:</strong></li>
+                        <ol>
+                        {{list-instructions instructions}}
+                        </ol>
+                    </ul>
                         </div>
                     </div>
                 </div>

@@ -3,52 +3,35 @@ const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { Category, User, Star, Comment, Drink } = require('../models');
 
-router.get('/', withAuth, (req, res) => {
+const starsCount = 1
 
-    const starsCount = 1
-
-    Drink.findAll({
-        attributes: [
-          "id",
-          "image_url",
-          "name",
-          "category_id",
-          "ingredients",
-          "glass_type",
-          "instructions",
-          [ sequelize.literal(
-              "(SELECT COUNT(*) FROM star WHERE star.drink_id = drink.id)"
-            ),
-            "star_count",
-          ],
-        ],
-        having: sequelize.literal(`(star_count) >= ${starsCount}`),
-        order: [[sequelize.literal('star_count'), 'DESC']],
-        include: [
-            {
-              model: Star,
-              where: {
-                // use the ID from the session
-                user_id: req.session.user_id
-              },
-              attributes: ['id']
-            },
-          ],
-          include: [
-            {
-              model: User,
-              where: {
-                // use the ID from the session
-                id: req.session.user_id
-              },
-              attributes: ['username']
-            },
-          ],
-    })
-    .then(dbDrinkData => {
-      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+router.get('/', (req, res) => {
+  if (req.session.loggedIn) {
+  User.findOne({
+    attributes: { exclude: ['password'] },
+    where: {
+      id: req.session.user_id
+    },
+    include: [
+      {
+        model: Drink,
+        attributes: ["id",
+        "image_url",
+        "name",
+        "category_id",
+        "ingredients",
+        "glass_type",
+        "instructions"],
+        through: Star,
+        as: 'starred_drinks',
+      },
+    ]
+  })
+    .then(dbUserData => {
+      const user = dbUserData.get({ plain: true });
+      console.log(user)
       res.render('dashboard', {
-        drinks,
+        user,
         loggedIn: req.session.loggedIn
       });
     })
@@ -56,6 +39,7 @@ router.get('/', withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+  }
 });
 
 router.get('/comments', withAuth, (req, res) => {
@@ -92,8 +76,10 @@ router.get('/comments', withAuth, (req, res) => {
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      const myDrinks = dbDrinkData;
       res.render('dashboard-drinks', {
         drinks,
+        myDrinks,
         loggedIn: req.session.loggedIn
       });
     })
