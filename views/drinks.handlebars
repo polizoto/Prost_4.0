@@ -16,9 +16,7 @@
                 <div class="flip-card-back">
                 <a href='/drink/{{id}}' class="{{id}}"><h1 class='cocktail-header' id="cocktail-header">{{name}}</h1></a>
                     <ul>
-                        {{#each ingredients}}
-                        <li>{{item}}</li>
-                        {{/each}}
+                        {{list-item ingredients}}
                         <li><strong>Glass:</strong>{{glass_type}}</li>
                         <li><strong>Instructions:</strong>{{instructions}}</li>
                     </ul>
