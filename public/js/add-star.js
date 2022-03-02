@@ -1,15 +1,18 @@
-let heartBtn = document.querySelector('.card-deck');
+/*let heartBtn = document.querySelector('.favorite-btn');
 
 async function favClickHandler(event) {
     event.preventDefault();
-    console.log(event)
+    
 
     // const id = window.location.toString().split('/')[
     //     window.location.toString().split('/').length - 1
     // ];
 
-    //if(event.target.className)
+      if(event.target.className === 'cocktail-header') {
+        
+     } 
     const id = event.target.previousElementSibling.className;
+    
     console.log(id)
 
     const response = await fetch('/api/drinks/addStar', {
@@ -21,10 +24,34 @@ async function favClickHandler(event) {
 
     if (response.ok) {
         document.location.reload();
-        console.log('favorited!!!!!!!!!!!!!!!!!!!!!!');
     } else {
         alert(response.statusText);
     }
 }
 
-heartBtn.addEventListener('click', favClickHandler);
+heartBtn.addEventListener('click', favClickHandler);*/
+
+async function upvoteClickHandler(event) {
+    event.preventDefault();
+  
+    const id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+    ];
+    const response = await fetch('/api/drinks/addStar', {
+      method: 'PUT',
+      body: JSON.stringify({
+        drink_id: id
+      }),
+      /*headers: {
+        'Content-Type': 'application/json'
+      }*/
+    });
+  
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert(response.statusText);
+    }
+  }
+  
+  document.querySelector('.favorite-btn').addEventListener('click', upvoteClickHandler);
