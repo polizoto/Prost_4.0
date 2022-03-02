@@ -43,12 +43,15 @@ async function signupFormHandler(event) {
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
-        alert(response.statusText);
+        modalMessage.textContent = "Error: " + author + "'s books not found at Open Library"
+        modal.callOpen
+        modal.opener = document.activeElement
+        openModal()
+        // alert(response.statusText);
       }
     }
   }
-  
-  
+
   document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
   
   document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);
