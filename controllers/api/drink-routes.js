@@ -112,11 +112,8 @@ router.get("/favorites", (req, res) => {
       res.status(500).json(err);
     });
 });
-<<<<<<< HEAD
-=======
 // addStar to Drink
 
->>>>>>> 8e46724319e1d11e931daf1158f8dd2b2bec2055
 router.post("/addStar", (req, res) => {
   if (req.session) {
     Star.create({
