@@ -130,7 +130,7 @@ const drinkdata = [
     instructions: "Shake and strain, Garnish with candied ginger, mist coupe glass with 3 sprays of Laphroaig"
   },
   {
-    name: 'Bees Knees ',
+    name: 'Bees Knees',
     image_url: 'placeholder',
     category_id: 1,
     ingredients: "2 oz Beefeater gin, ½ oz Honey syrup, ½ oz Lemon",
@@ -282,7 +282,7 @@ const drinkdata = [
     instructions: "Ice Shake, Add egg white & dry Shake, Fine mesh strain into a chilled sour glass, Garnish with 3 drops of Angostura"
   },
   {
-    name: 'Whiskey Sour (w/o egg white)',
+    name: 'Whiskey Sour (no egg white)',
     image_url: 'placeholder',
     category_id: 2,
     ingredients: "1 ½ oz Bourbon (WT 101), ¾ oz Demerara Syrup, ¾ oz Lemon",
@@ -322,7 +322,7 @@ const drinkdata = [
     instructions: "Shake and Dbl strain"
   },
   {
-    name: 'Corpse Reviver #2',
+    name: 'Corpse Reviver No2',
     image_url: 'placeholder',
     category_id: 1,
     ingredients: "¾ oz Gin (Beefeater), ¾ oz Cocchi Americano Bianco, ¾ oz Cointreau, ¾ oz Lemon",
@@ -330,7 +330,7 @@ const drinkdata = [
     instructions: "Shake and Dbl strain, Garnish with Absinthe sprayed coupe"
   },
   {
-    name: 'Corpse Reviver #26',
+    name: 'Corpse Reviver No26',
     image_url: 'placeholder',
     category_id: 6,
     ingredients: "¾ oz Fair Game Apple Brandy, ¾ oz Aperol, ¾ oz Lillet Rose, ¾ oz Lemon Juice",
@@ -376,14 +376,7 @@ const drinkdata = [
     ingredients: "1 ½ oz Titos, ¾ oz Cointreau, ¼  oz Cranberry syrup, ¼ oz lime, ¼ oz simple",
     glass_type: "coupe",
     instructions: "Shake & dbl strain, Orange twist"
-  },
-
-
-
-
-
-
-  
+  },  
 ];
 
 const seedDrinks = () => Drink.bulkCreate(drinkdata);

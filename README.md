@@ -13,11 +13,14 @@ enjoy an authentic Alley Twenty Six cocktail from home!</p>
 <br>
 <img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1475675641861-GKYXT0SD0LFJULWRM8I8/Alley26_DurhamNative-0041-X3.jpg?format=2500w" width="400">
 <br>
-<br>
 
 ## Installation
 
 <p>After installing npm packages, type nodemon server.js and open your browser to localhost:3001.</p>
+<br>
+<br>
+<img src="https://github.com/polizoto/Prost_4.0/blob/main/public/images/readme1.png?raw=true" width="400">
+<br>
 
 
 ## Authors
@@ -37,7 +40,10 @@ enjoy an authentic Alley Twenty Six cocktail from home!</p>
 - [Github](https://github.com/polizoto/Prost_4.0)
 - [Heroku](placeholder here)
 <br>
-<img src="../public/images/readme1.png" width="400">
+<br>
+<img src="https://github.com/polizoto/Prost_4.0/blob/main/public/images/readme2.png?raw=true">
+
+
 
 ## Technologies
 

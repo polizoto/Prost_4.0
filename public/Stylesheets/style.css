@@ -15,13 +15,19 @@
 
 .navbar-nav {
     display: flex;
-    flex-direction: row;
+    flex-direction: column !important;
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
     align-content: center;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-wrap: nowrap !important;
+}
+
+.my-3 {
+  margin-top: 0rem!important;
+  margin-bottom: 1rem!important;
 }
 
 /*hero*/
@@ -148,8 +154,8 @@
 
 .flip-card {
     background-color: transparent;
-    width: 270px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     perspective: 1000px;
     margin-left: 50px;
 }
@@ -185,6 +191,15 @@
     background-color: rgb(105, 100, 100);
     color: white;
     transform: rotateY(180deg);
+}
+
+.back-list {
+  margin-right: 3.5rem;
+  margin-top:19px;
+}
+
+.instructions {
+  padding-left: 0rem;
 }
 
 /*sign up modal*/
@@ -250,11 +265,7 @@
     box-sizing: border-box;
   }
   
-  
-  /* .container {
-  
-  } */
-  
+
   .wrapper {
     margin: 0 auto;
     background: #ffffff;
@@ -309,3 +320,11 @@
   .results ul li:hover {
     background: #ececec
   }
+
+  @media all {
+    
+    li {
+        list-style-position: outside;
+        overflow: hidden;
+    }
+}
