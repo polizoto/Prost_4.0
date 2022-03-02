@@ -3,11 +3,11 @@ const sequelize = require('../config/connection');
 const { Category, User, Star, Comment, Drink } = require('../models');
 
 router.get('/', (req, res) => {
-  res.render('homepage');
+  res.render('homepage', { loggedIn: req.session.loggedIn });
 })
 
 router.get('/dashboard', (req, res) => {
-  res.render('dashboard');
+  res.render('dashboard', { loggedIn: req.session.loggedIn });
 })
 // find drink by id
 router.get("/drink/:id", (req, res) => {
