@@ -58,9 +58,22 @@ router.get("/drink/:id", (req, res) => {
         ingredients[index] = object
     }
     drinkItems.forEach((name, index) => getIngredients(name, index));
+
+    //
+      // make an array from string of ingredient items
+      const instructionItems = drinks[0].instructions.split(',');
+      // make object with separate items from array
+      let instructions = []
+      function getInstructions(item, index) {
+        let object = { instruction: index + 1, item: item.trim(), }
+        instructions[index] = object
+    }
+    instructionItems.forEach((name, index) => getInstructions(name, index));
+    //
       res.render('single-drink', {
         drinks: drinks[0],
         ingredients: ingredients,
+        instructions: instructions,
         loggedIn: req.session.loggedIn
       });
     })
@@ -110,10 +123,6 @@ router.get('/drinks', (req, res) => {
         console.log(err);
         res.status(500).json(err);
       })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
 });
 
 // if logged in redirect to hompage
