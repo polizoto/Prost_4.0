@@ -43,6 +43,9 @@ async function upvoteClickHandler(event) {
       body: JSON.stringify({
         drink_id: id
       }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
   
     if (response.ok) {
