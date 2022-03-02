@@ -6,7 +6,7 @@ const seedCategories = require ('./category-seeds');
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
-    await sequelize.sync({ force: false });
+    await sequelize.sync({ force: true });
      //console.log('--------------');
 
     await seedCategories();
@@ -26,7 +26,7 @@ const seedAll = async () => {
     
   };
   
-   //seedAll();
+   seedAll();
 
   module.exports = {
     format_date: date => {
