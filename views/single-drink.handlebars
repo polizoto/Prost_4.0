@@ -1,4 +1,4 @@
-{{> nav/nav}}
+<!--{{> nav/nav}}-->
 {{> nav/login}}
 
 <div class="card mb-3" style="max-width: 690px;">
@@ -18,7 +18,7 @@
                     <li style="list-style-type: none;"><strong>Glass:</strong></li> 
                     <li style="list-style-type: none;">{{drinks.glass_type}}</li>
                     <li style="list-style-type: none;"><strong>Instructions:</strong></li>
-                    <ol>
+                    <ol class="instructions">
                     {{#each instructions}}
                     
                         <li>{{item}}</li>

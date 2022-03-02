@@ -30,6 +30,12 @@
   margin-bottom: 1rem!important;
 }
 
+.container-fluid {
+  padding-right: var(--bs-gutter-x,-1.25rem);
+  padding-left: var(--bs-gutter-x,-0.25rem);
+
+}
+
 /*hero*/
 .hero {
     background-image: url("/images/jumbo.jpg");
