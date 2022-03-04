@@ -229,11 +229,11 @@ router.post("/addStar", (req, res) => {
 
 // addStar to Drink
 
-router.delete("/deleteStar/:id", (req, res) => {
+router.delete("/deleteStar", (req, res) => {
   if (req.session) {
     Star.destroy({
       where: {
-        id: req.params.id
+        id: req.body.star_id
       }
     })
       .then((updatedStarData) => res.json(updatedStarData))

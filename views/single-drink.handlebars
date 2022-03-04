@@ -36,10 +36,15 @@
                 </div>
                 <div>
                     <button type="submit">add comment</button>
-                    <button type="button" class="favorite-btn">Add to Favorites</button>
+                     {{#if isStarred}}
+                        <button type="button" data-star="{{starredDrink.id}}" class="remove-favorite-btn">Remove from Favorites</button>
+                        {{else}}
+                        <button type="button" class="favorite-btn">Add to Favorites</button>
+                     {{/if}}
                     {{else}}
                     <br>
                     {{/if}}
+
                 </div>
                 </form>
                 
@@ -48,5 +53,12 @@
     </div>
 </div>       
             {{> nav/comments drinks.comments}}
+
 <script src="/js/comment.js"></script>
+{{#if loggedIn}}
+{{#if isStarred}}
+<script src="/js/remove-star.js"></script>
+{{else}}
 <script src="/js/add-star.js"></script>
+{{/if}}
+{{/if}}

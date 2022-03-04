@@ -57,5 +57,5 @@ async function upvoteClickHandler(event) {
       alert(response.statusText);
     }
   }
-  
+
   document.querySelector('.favorite-btn').addEventListener('click', upvoteClickHandler);
