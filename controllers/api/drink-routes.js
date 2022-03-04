@@ -85,13 +85,9 @@ router.get("/:id", (req, res) => {
         return;
       }
       const drinks = dbDrinkData.get({ plain: true });
-      // make an array from string of ingredient items
-      // const drinkItems = drinks[0].ingredients.split(',');
       const drinkItems = drinks.ingredients.split(',');
 
-      // const starredDrink = drinks[0].stars[0].id
       const starredDrink = drinks.stars[0]
-      // make object with separate items from array
       let ingredients = []
       function getIngredients(item, index) {
         let object = { ingredient: index + 1, item: item.trim(), }
@@ -116,8 +112,6 @@ router.get("/:id", (req, res) => {
     } else {
       isStarred = false
     }
-
-    
       res.json({
         drinks: drinks,
         isStarred: isStarred,
