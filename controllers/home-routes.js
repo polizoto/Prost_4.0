@@ -3,7 +3,10 @@ const sequelize = require('../config/connection');
 const { Category, User, Star, Comment, Drink } = require('../models');
 
 router.get('/', (req, res) => {
-  res.render('homepage', { loggedIn: req.session.loggedIn });
+  res.render('homepage', { 
+    loggedIn: req.session.loggedIn, 
+    style: 'style.css'
+  });
 })
 
 router.get('/dashboard', (req, res) => {
@@ -74,7 +77,8 @@ router.get("/drink/:id", (req, res) => {
         drinks: drinks[0],
         ingredients: ingredients,
         instructions: instructions,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        style: 'single.css'
       });
     })
 });
@@ -116,7 +120,8 @@ router.get('/drinks', (req, res) => {
         const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
         res.render('drinks', {
           drinks,
-          loggedIn: req.session.loggedIn
+          loggedIn: req.session.loggedIn,
+          style: 'style.css'
         });
       })
       .catch(err => {
@@ -132,7 +137,9 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("login", {
+    style: 'style.css'
+  });
 });
 
 // find all gin drinks
@@ -169,6 +176,7 @@ router.get("/gin", (req, res) => {
         res.render("drinks", {
           drinks,
           loggedIn: req.session.loggedIn,
+          style: 'style.css'
         });
       })
       .catch((err) => {
@@ -211,6 +219,7 @@ router.get("/whiskey", (req, res) => {
         res.render("drinks", {
           drinks,
           loggedIn: req.session.loggedIn,
+          style: 'style.css'
         });
       })
       .catch((err) => {
@@ -252,6 +261,7 @@ router.get("/tequila", (req, res) => {
         res.render("drinks", {
           drinks,
           loggedIn: req.session.loggedIn,
+          style: 'style.css'
         });
       })
       .catch((err) => {
@@ -293,6 +303,7 @@ router.get("/vodka", (req, res) => {
         res.render("drinks", {
           drinks,
           loggedIn: req.session.loggedIn,
+          style: 'style.css'
         });
       })
       .catch((err) => {
@@ -333,7 +344,8 @@ router.get('/rum', (req, res) => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
       res.render('drinks', {
         drinks,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        style: 'style.css'
       });
     })
     .catch(err => {
@@ -374,7 +386,8 @@ router.get('/brandy', (req, res) => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
       res.render('drinks', {
         drinks,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        style: 'style.css'
       });
     })
     .catch(err => {
@@ -415,7 +428,8 @@ router.get('/cordials', (req, res) => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
       res.render('drinks', {
         drinks,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        style: 'style.css'
       });
     })
     .catch(err => {
@@ -451,7 +465,8 @@ router.get('/top10', (req, res) => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
       res.render('drinks', {
         drinks,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        style: 'style.css'
       });
     })
     .catch(err => {

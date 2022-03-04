@@ -32,7 +32,8 @@ router.get('/', (req, res) => {
       console.log(user)
       res.render('dashboard', {
         user,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        style: 'style.css'
       });
     })
     .catch(err => {
@@ -80,7 +81,8 @@ router.get('/comments', withAuth, (req, res) => {
       res.render('dashboard-drinks', {
         drinks,
         myDrinks,
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        style: 'style.css'
       });
     })
     .catch(err => {

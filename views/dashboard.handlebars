@@ -1,4 +1,4 @@
-{{> nav/nav}}
+<!--{{> nav/nav}}-->
 {{> nav/login}}
 
 <h1>Welcome {{user.username}}</h1>
@@ -11,17 +11,17 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="/images/{{name}}.jpg" alt="a drink" style="width:270px;height:400px">
+                            <img src="/images/{{name}}.jpg" alt="a drink" style="width:350px;height:450px">
                         </div>
                         <div class="flip-card-back">
                             <a href='/drink/{{id}}'><h1 id="cocktail-header">{{name}}</h1></a>
-                        <ul>
+                        <ul class="back-list">
                         <li style="list-style-type: none;"><strong>Ingredients</strong></li> 
                         {{list-item ingredients}}
                         <li style="list-style-type: none;"><strong>Glass:</strong></li>
                         <li>{{glass_type}}</li>                        
                         <li style="list-style-type: none;"><strong>Instructions:</strong></li>
-                        <ol>
+                        <ol class="instructions">
                         {{list-instructions instructions}}
                         </ol>
                     </ul>

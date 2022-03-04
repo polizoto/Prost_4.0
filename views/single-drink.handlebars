@@ -1,45 +1,52 @@
-{{> nav/nav}}
+<!--{{> nav/nav}}-->
 {{> nav/login}}
 
-<div class="card" style="width:18rem;">
-    <img src="/images/{{drinks.name}}.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h1>{{ drinks.name }}</h1>
-
-        <ul>
-            <li style="list-style-type: none;"><strong>Ingredients</strong></li>
-            {{#each ingredients}}
-            <li>{{item}}</li>
-            {{/each}}
-            <li style="list-style-type: none;"><strong>Glass:</strong></li> 
-            <li style="list-style-type: none;">{{drinks.glass_type}}</li>
-            <li style="list-style-type: none;"><strong>Instructions:</strong></li>
-            <ol>
-            {{#each instructions}}
-            
-                <li>{{item}}</li>
-            
-            {{/each}}
-            </ol>
-        </ul>
-
-        <h3>Favorites: {{drinks.star_count}}</h3>
-
-        <form class="comment-form">
-        <div>
-            {{#if loggedIn}}
-            <textarea name="comment-body"></textarea>
+<div class="card mb-3" style="max-width: 750px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="/images/{{drinks.name}}.jpg" class="card-img" alt="...">
         </div>
-        <div>
-            <button type="submit">add comment</button>
-            <button type="button" class="favorite-btn">Add to Favorites</button>
-            {{else}}
-            <br>
-            {{/if}}
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="drink-title">{{ drinks.name }}</h1>
+
+                <ul>
+                    <li style="list-style-type: none;"><strong>Ingredients</strong></li>
+                    {{#each ingredients}}
+                    <li>{{item}}</li>
+                    {{/each}}
+                    <li style="list-style-type: none;"><strong>Glass:</strong></li> 
+                    <li style="list-style-type: none;">{{drinks.glass_type}}</li>
+                    <li style="list-style-type: none;"><strong>Instructions:</strong></li>
+                    <ol class="instructions">
+                    {{#each instructions}}
+                    
+                        <li>{{item}}</li>
+                    
+                    {{/each}}
+                    </ol>
+                </ul>
+
+                <h3>Favorites: {{drinks.star_count}}</h3>
+
+                <form class="comment-form">
+                <div>
+                    {{#if loggedIn}}
+                    <textarea name="comment-body"></textarea>
+                </div>
+                <div>
+                    <button type="submit">add comment</button>
+                    <button type="button" class="favorite-btn">Add to Favorites</button>
+                    {{else}}
+                    <br>
+                    {{/if}}
+                </div>
+                </form>
+                
+            </div>
         </div>
-        </form>
-        {{> nav/comments drinks.comments}}
     </div>
 </div>       
+            {{> nav/comments drinks.comments}}
 <script src="/js/comment.js"></script>
 <script src="/js/add-star.js"></script>

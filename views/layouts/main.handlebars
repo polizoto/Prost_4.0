@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Playfair Display SC' rel='stylesheet'>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css"/>
+	<link rel="stylesheet" href="/stylesheets/{{style}}" type="text/css">
 	<script src="https://kit.fontawesome.com/46b1ed83d1.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
@@ -21,7 +21,35 @@
 </head>
 
 <body class="body">
+	<div class="container-fluid">
+      <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-dark p-4">
+            <ul class="nav navbar-nav" id="navbar">
+                {{#if loggedIn}}
+                <li id="logout"><a href="" class="btn btn-secondary btn-rounded my-3" data-toggle="modal" data-target="#darkModalForm">Log Out</a></li>
+                <li id="favorites"><a href="/dashboard" class="btn btn-secondary btn-rounded my-3">Favorites</a></li>
+                {{else}}
+                <li id="list"><a href="" class="btn btn-secondary btn-rounded my-3" data-toggle="modal" data-target="#darkModalForm">Sign In</a></li>
+                {{/if}}
+          </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    </div>
 
+    <div class="container-fluid">
+      <header>
+          <h1 class="main-header"><a href="/"> <img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1470955349442-O34E4WM5KSY1H4UEAEFP/alleywebwhite.png?format=1500w" alt="logo"></a> </h1>
+      </header>
+    </div>
+     
+     <script src="/js/login.js"></script>
+    <script src="/js/logout.js"></script>
 	{{{ body }}}
 
      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

@@ -30,7 +30,8 @@ router.get("/:name", (req, res) => {
     res.render('single-drink', {
       drinks: drinks[0],
       ingredients: ingredients,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      style: 'single.css'
     });
   })
 });
@@ -104,7 +105,9 @@ router.get("/favorites", (req, res) => {
       }
       //   const posts = dbPostData.map(post => post.get({ plain: true }));
       //   res.render('favorites',dbPostData);
-      res.render("favorites");
+      res.render("favorites", {
+        style: 'style.css'
+      });
       // res.json(dbStarData)
     })
     .catch((err) => {
