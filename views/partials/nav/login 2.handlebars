@@ -1,0 +1,72 @@
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog form-dark" role="document">
+        <!--content-->
+        <div class="modal-content card card-image" id="modal-card" style="background-image: url('/images/modal.jpg');">
+            <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+                <!--cascading tabs-->
+                <div class="modal-c-tabs">
+                    <!--nav tabs-->
+                    <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" id='c-tabs' role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab"><i class="fas fa-user mr-1"></i>
+                            Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                            Sign Up</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+                            <!--body-->
+                            <div class="modal-body">
+                                <div class="md-form form-sm mb-3">
+                                    <i class="fas fa-envelope prefix"></i>
+                                    <input type="email" id="modalInput1" class="form-control form-control-sm validate" placeholder="Your Email">
+                                    <label data-error="wrong" data-success="right" for="modalInput1"></label>
+                                </div>
+                                <div class="md-form form-sm mb-3">
+                                    <i class="fas fa-lock prefix"></i>
+                                    <input type="password" id="modalInput2" class="form-control form-control-sm validate" placeholder="Your Password">
+                                    <label data-error="wrong" data-success="right" for="modalInput2"></label>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button class="btn btn-info">Log In <i class="fas fa-sign-in ml-1"></i></button>
+                                </div>    
+                            </div>
+                            <!--footer-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="panel2" role="tabpanel">
+                            <div class="modal-body">
+                                <div class="md-form form-sm mb-3">
+                                    <i class="fas fa-envelope prefix"></i>
+                                    <input type="email" id="modalInput4" class="form-control form-control-sm validate" placeholder="Your Email">
+                                    <label data-error="wrong" data-success="right" for="modalInput4"></label>
+                                </div>
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fas fa-lock prefix"></i>
+                                    <input type="password" id="modalInput5" class="form-control form-control-sm validate" placeholder="Your Password">
+                                    <label data-error="wrong" data-success="right" for="modalInput5"></label>
+                                </div>
+                                <div class="md-form form-sm mb-4">
+                                    <i class="fas fa-lock prefix"></i>
+                                    <input type="password" id="modalInput6" class="form-control form-control-sm validate" placeholder="Repeat Password">
+                                    <label data-error="wrong" data-success="right" for="modalInput6"></label>
+                                </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

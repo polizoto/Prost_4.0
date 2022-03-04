@@ -72,6 +72,12 @@ router.post('/', (req, res) => {
       password: req.body.password
     })
     .then(dbUserData => {
+      // if (!dbUserData) {
+      //   console.log("HELLO")
+      //   console.log(err);
+      //   res.status(500).json(err);
+      //   return 
+      // }
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
@@ -82,7 +88,8 @@ router.post('/', (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
-    });
+      return 
+    })
   })
 
   router.post('/login', (req, res) => {
@@ -93,14 +100,16 @@ router.post('/', (req, res) => {
     }).then(dbUserData => {
       if (!dbUserData) {
 
-        res.status(400).json({ message: 'No user with that email address!' });
-        return;
+        res.status(400).json({ message: 'Incorrect password!' });
+        return 
       }
   
       const validPassword = dbUserData.checkPassword(req.body.password);
   
       if (!validPassword) {
+
         res.status(400).json({ message: 'Incorrect password!' });
+
         return;
       }
   

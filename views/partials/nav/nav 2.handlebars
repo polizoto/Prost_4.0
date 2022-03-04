@@ -1,13 +1,9 @@
-
 <div class="container-fluid">
       <div class="collapse" id="navbarToggleExternalContent">
           <div class="bg-dark p-4">
             <ul class="nav navbar-nav" id="navbar">
-                {{#if loggedIn}}
-                <li id="logout"><a href="" class="btn btn-secondary btn-rounded my-3" data-toggle="modal" data-target="#darkModalForm">Log Out</a></li>
-                {{else}}
                 <li id="list"><a href="" class="btn btn-secondary btn-rounded my-3" data-toggle="modal" data-target="#darkModalForm">Sign In</a></li>
-                {{/if}}
+                
           </div>
       </div>
       <nav class="navbar navbar-dark bg-dark">
@@ -24,8 +20,3 @@
           <h1 class="main-header"><a href="/"> <img src="https://images.squarespace-cdn.com/content/v1/578d380ed1758ea279dff7ad/1470955349442-O34E4WM5KSY1H4UEAEFP/alleywebwhite.png?format=1500w" alt="logo"></a> </h1>
       </header>
     </div>
-     
-     <script src="/js/login.js"></script>
-    <script src="/js/logout.js"></script>
-
-    {{!-- connecting to log js files --}}
