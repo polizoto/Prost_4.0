@@ -1,0 +1,29 @@
+{{> nav/nav}}
+{{> nav/login}}
+
+<div class="card" style="width:18rem;">
+    <img src="/images/{{drinks.name}}.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h1>{{ drinks.name }}</h1>
+
+        <ul>
+            {{#each ingredients}}
+            <li>{{item}}</li>
+            {{/each}}
+            <li>{{drinks.glass_type}}</li>
+            <li>{{drinks.instructions}}</li>
+        </ul>
+
+        <form class="comment-form">
+        <div>
+            <textarea name="comment-body"></textarea>
+        </div>
+        <div>
+            <button type="submit">add comment</button>
+            <button type="button" class="upvote-btn">upvote</button>
+        </div>
+        </form>
+        {{> nav/comments drinks.comments}}
+    </div>
+</div>       
+<script src="/js/comment.js"></script>

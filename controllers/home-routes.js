@@ -10,11 +10,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/dashboard', (req, res) => {
-  res.render('/dashboard');
+  res.render('dashboard', { loggedIn: req.session.loggedIn });
 })
 // find drink by id
 router.get("/drink/:id", (req, res) => {
-  Drink.findAll({
+  Drink.findOne({
     where: {
       id: req.params.id,
     },
@@ -41,6 +41,14 @@ router.get("/drink/:id", (req, res) => {
           model: User,
           attributes: ["username"],
         },
+      },
+      {
+        model: Star,
+        attributes: ["id"],
+        include: {
+          model: User,
+          attributes: ["id", "created_at"],
+        }
       }
     ],
     order: [[sequelize.literal('name'), 'ASC']],
@@ -51,9 +59,11 @@ router.get("/drink/:id", (req, res) => {
         res.status(404).json({ message: "No drink found with this id" });
         return;
       }
-      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      const drinks = dbDrinkData.get({ plain: true });
       // make an array from string of ingredient items
-      const drinkItems = drinks[0].ingredients.split(',');
+      const drinkItems = drinks.ingredients.split(',');
+
+      const starredDrink = drinks.stars[0]
       // make object with separate items from array
       let ingredients = []
       function getIngredients(item, index) {
@@ -64,7 +74,7 @@ router.get("/drink/:id", (req, res) => {
 
     //
       // make an array from string of ingredient items
-      const instructionItems = drinks[0].instructions.split(',');
+      const instructionItems = drinks.instructions.split(',');
       // make object with separate items from array
       let instructions = []
       function getInstructions(item, index) {
@@ -72,9 +82,17 @@ router.get("/drink/:id", (req, res) => {
         instructions[index] = object
     }
     instructionItems.forEach((name, index) => getInstructions(name, index));
-    //
+
+    let isStarred
+    if (starredDrink) {
+      isStarred = true
+    } else {
+      isStarred = false
+    }
       res.render('single-drink', {
-        drinks: drinks[0],
+        drinks: drinks,
+        isStarred: isStarred,
+        starredDrink: starredDrink,
         ingredients: ingredients,
         instructions: instructions,
         loggedIn: req.session.loggedIn,

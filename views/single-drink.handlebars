@@ -29,10 +29,15 @@
 
                 <h3>Favorites: {{drinks.star_count}}</h3>
 
+<<<<<<< HEAD
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form"> Add
                     Comment</button>
                 {{!-- modal --}}
                 {{#if loggedIn}}
+=======
+                {{!-- modal --}}
+                 {{#if loggedIn}}
+>>>>>>> develop
                 <div class="modal fade " id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -47,8 +52,6 @@
                                     <div class="text-center mt-4"> <button type="submit"
                                             class="btn btn-success send px-5 m-2">Add Comment </button>
                                         <br>
-                                        <button type="button" class="favorite-btn btn btn-success send px-5">Add to
-                                            Favorites</button>
                                     </div>
                                 </div>
                             </div>
@@ -57,10 +60,34 @@
                 </div>
                 {{else}}
                 {{/if}}
+                
+                    
+                        {{#if loggedIn}}
+                <form>                    
+                    <div>
+                        <button type="button" data-toggle="modal" data-target="#form">add comment</button>
+                         {{#if isStarred}}
+                        <button type="button" data-star="{{starredDrink.id}}" class="remove-favorite-btn">Remove from
+                            Favorites</button>
+                        {{else}}
+                        <button type="button" class="favorite-btn">Add to Favorites</button>
+                        {{/if}}
+                        {{else}}
+                        <br>
+                        {{/if}}
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
 </div>
 {{> nav/comments drinks.comments}}
 <script src="/js/comment.js"></script>
+{{#if loggedIn}}
+{{#if isStarred}}
+<script src="/js/remove-star.js"></script>
+{{else}}
 <script src="/js/add-star.js"></script>
+{{/if}}
+{{/if}}

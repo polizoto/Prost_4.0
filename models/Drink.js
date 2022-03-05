@@ -34,6 +34,40 @@ class Drink extends Model {
       });
     });
   }
+  // static deleteStar(body, models) {
+  //   return models.Star.destroy({
+  //     where: {
+  //       user_id: req.session.user_id,
+  //       drink_id: req.body.drink_id
+  //       }
+  //   }).then(() => {
+  //     return Drink.findOne({
+  //       where: {
+  //         id: body.drink_id
+  //       },
+  //       attributes: [
+  //         'id',
+  //         'image_url',
+  //         'name',
+  //         'category_id',
+  //         'ingredients',
+  //         'glass_type',
+  //         'instructions',
+  //         [sequelize.literal('(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)'), 'star_count']
+  //       ],
+  //       include: [
+  //         {
+  //           model: models.Comment,
+  //           attributes: ['id', 'comment_text', 'drink_id', 'user_id', 'created_at'],
+  //           include: {
+  //             model: models.User,
+  //             attributes: ['username']
+  //           }
+  //         }
+  //       ]
+  //     });
+  //   });
+  // }
 }
 
 Drink.init(

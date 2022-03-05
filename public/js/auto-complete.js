@@ -215,10 +215,14 @@ let searchable = ["Negroni", "Martini","Vodka Martini", "Dirty Vodka Martini","M
     //   });
     }
     renderResults(results);
+	
   });
   
   function renderResults(results) {
     if (!results.length) {
+
+
+
       return searchWrapper.classList.remove('show');
     }
     console.log (results)
