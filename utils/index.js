@@ -26,7 +26,7 @@ const seedAll = async () => {
     
   };
   
-  //  seedAll();
+   seedAll();
 
   module.exports = {
     format_date: date => {
