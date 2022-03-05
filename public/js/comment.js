@@ -1,4 +1,5 @@
 async function commentFormHandler(event) {
+  console.log("hiitttttt")
     event.preventDefault();
     const comment_text = document.getElementById('text-area').value.trim();
     const drink_id = window.location.toString().split('/')[
@@ -23,8 +24,9 @@ async function commentFormHandler(event) {
         console.log('response:', response)
         document.location.reload();
       } else {
+        console.log("fuckk youuu");
         alert(response.statusText);
     }
   }
 }
-  document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+  document.querySelector('.comment-form').addEventListener('click', commentFormHandler);
