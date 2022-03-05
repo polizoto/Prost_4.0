@@ -29,15 +29,8 @@
 
                 <h3>Favorites: {{drinks.star_count}}</h3>
 
-<<<<<<< HEAD
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form"> Add
-                    Comment</button>
-                {{!-- modal --}}
-                {{#if loggedIn}}
-=======
                 {{!-- modal --}}
                  {{#if loggedIn}}
->>>>>>> develop
                 <div class="modal fade " id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -83,6 +76,7 @@
     </div>
 </div>
 {{> nav/comments drinks.comments}}
+
 <script src="/js/comment.js"></script>
 {{#if loggedIn}}
 {{#if isStarred}}
