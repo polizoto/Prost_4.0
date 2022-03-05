@@ -111,12 +111,21 @@
 
 .card-img {
     height: 80%;
-    width: 100%;
+    width: 120%;
+}
+
+.drink-title {
+    margin-bottom: 1.5rem!important;
+    padding-left: 23px;
 }
 
 .instructions {
     padding-left: 0rem;
   }
+
+.mt-5 {
+    margin-top: 0rem!important;
+}
 
 .comment h4 {
     display: inline
@@ -139,8 +148,9 @@
 .second {
     width: 350px;
     background-color: white;
-    border-radius: 4px;
-    box-shadow: 10px 10px 5px #aaaaaa
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    margin-bottom: 10px;
 }
 
 .text1 {
