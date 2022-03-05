@@ -15,44 +15,67 @@
                     {{#each ingredients}}
                     <li>{{item}}</li>
                     {{/each}}
-                    <li style="list-style-type: none;"><strong>Glass:</strong></li> 
+                    <li style="list-style-type: none;"><strong>Glass:</strong></li>
                     <li style="list-style-type: none;">{{drinks.glass_type}}</li>
                     <li style="list-style-type: none;"><strong>Instructions:</strong></li>
                     <ol class="instructions">
-                    {{#each instructions}}
-                    
+                        {{#each instructions}}
+
                         <li>{{item}}</li>
-                    
-                    {{/each}}
+
+                        {{/each}}
                     </ol>
                 </ul>
 
                 <h3>Favorites: {{drinks.star_count}}</h3>
 
-                <form class="comment-form">
-                <div>
-                    {{#if loggedIn}}
-                    <textarea name="comment-body"></textarea>
+                {{!-- modal --}}
+                 {{#if loggedIn}}
+                <div class="modal fade " id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content comment-form ">
+                            <div class="text-right cross"> <i class="fa fa-times mr-2"></i> </div>
+                            <div class="card-body text-center"> 
+                                <div class="comment-box text-center">
+                                    <h4>Add a comment</h4>
+                                    <div class="comment-area"> <textarea name="comment-body" id="text-area"
+                                            class=" comment-body" placeholder="what is your comment?"
+                                            rows="4"></textarea> </div>
+                                    <div class="text-center mt-4"> <button type="submit"
+                                            class="btn btn-success send px-5 m-2">Add Comment </button>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <button type="submit">add comment</button>
-                     {{#if isStarred}}
-                        <button type="button" data-star="{{starredDrink.id}}" class="remove-favorite-btn">Remove from Favorites</button>
+                {{else}}
+                {{/if}}
+                
+                    
+                        {{#if loggedIn}}
+                <form>                    
+                    <div>
+                        <button type="button" data-toggle="modal" data-target="#form">add comment</button>
+                         {{#if isStarred}}
+                        <button type="button" data-star="{{starredDrink.id}}" class="remove-favorite-btn">Remove from
+                            Favorites</button>
                         {{else}}
                         <button type="button" class="favorite-btn">Add to Favorites</button>
-                     {{/if}}
-                    {{else}}
-                    <br>
-                    {{/if}}
-
-                </div>
+                        {{/if}}
+                        {{else}}
+                        <br>
+                        {{/if}}
+                    </div>
                 </form>
-                
+
             </div>
         </div>
     </div>
-</div>       
-            {{> nav/comments drinks.comments}}
+</div>
+{{> nav/comments drinks.comments}}
 
 <script src="/js/comment.js"></script>
 {{#if loggedIn}}
