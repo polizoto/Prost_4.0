@@ -37,8 +37,7 @@ enjoy an authentic Alley Twenty Six cocktail from home!</p>
 
 ## Deployment
 
-- [Github](https://github.com/polizoto/Prost_4.0)
-- [Heroku](placeholder here)
+- [Live App](https://fast-woodland-63027.herokuapp.com/)
 <br>
 <br>
 <img src="https://github.com/polizoto/Prost_4.0/blob/main/public/images/readme2.png?raw=true">
