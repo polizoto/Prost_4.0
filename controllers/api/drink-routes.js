@@ -36,6 +36,43 @@ const sequelize = require("../../config/connection");
 //   })
 // });
 
+router.get('/top10', (req, res) => {
+
+  const starsCount = 1
+
+  Drink.findAll({
+      attributes: [
+        "id",
+        "image_url",
+        "name",
+        "category_id",
+        "ingredients",
+        "glass_type",
+        "instructions",
+        [ sequelize.literal(
+            "(SELECT COUNT(*) FROM star WHERE star.drink_id = drink.id)"
+          ),
+          "star_count",
+        ],
+      ],
+      having: sequelize.literal(`(star_count) >= ${starsCount}`),
+      order: [[sequelize.literal('star_count'), 'DESC']],
+  })
+  .then(dbDrinkData => {
+    const placeIDs = dbDrinkData.map(drink => drink.get({ plain: true }));
+    drinks = []
+    placeIDs.slice([0], [10]).map((item, i) => {
+      drinks.push(item);
+    });
+
+    res.json(drinks);;
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 
 // find drink by id
 router.get("/:id", (req, res) => {
@@ -136,51 +173,53 @@ router.get("/:id", (req, res) => {
     })
 });
 
+
+
 // find all drinks
-router.get("/", (req, res) => {
-  Drink.findAll({
-    attributes: [
-      "id",
-      // "image_url",
-      "name",
-      // "category_id",
-      // "ingredients",
-      // "glass_type",
-      // "instructions",
-      // [
-      //   sequelize.literal(
-      //     "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
-      //   ),
-      //   "star_count",
-      // ],
-    ]
-    // include: [
-    //   {
-    //     model: Comment,
-    //     attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
-    //     include: {
-    //       model: User,
-    //       attributes: ["username"],
-    //     },
-    //   },
-    //   {
-    //     model: Category,
-    //     attributes: ["id", "name"],
-    //   },
-    // ],
-  })
-    .then((dbDrinkData) => {
-      if (!dbDrinkData) {
-        res.status(404).json({ message: "No drink found with this id" });
-        return;
-      }
-      res.json(dbDrinkData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.get("/", (req, res) => {
+//   Drink.findAll({
+//     attributes: [
+//       "id",
+//       // "image_url",
+//       "name",
+//       // "category_id",
+//       // "ingredients",
+//       // "glass_type",
+//       // "instructions",
+//       // [
+//       //   sequelize.literal(
+//       //     "(SELECT COUNT(*) FROM star WHERE drink.id = star.drink_id)"
+//       //   ),
+//       //   "star_count",
+//       // ],
+//     ]
+//     // include: [
+//     //   {
+//     //     model: Comment,
+//     //     attributes: ["id", "comment_text", "drink_id", "user_id", "created_at"],
+//     //     include: {
+//     //       model: User,
+//     //       attributes: ["username"],
+//     //     },
+//     //   },
+//     //   {
+//     //     model: Category,
+//     //     attributes: ["id", "name"],
+//     //   },
+//     // ],
+//   })
+//     .then((dbDrinkData) => {
+//       if (!dbDrinkData) {
+//         res.status(404).json({ message: "No drink found with this id" });
+//         return;
+//       }
+//       res.json(dbDrinkData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 
 // find starred drinks
@@ -250,8 +289,5 @@ router.delete("/deleteStar", (req, res) => {
       });
   }
 });
-
-
-
 
 module.exports = router;

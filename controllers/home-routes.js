@@ -491,7 +491,11 @@ router.get('/top10', (req, res) => {
         order: [[sequelize.literal('star_count'), 'DESC']],
     })
     .then(dbDrinkData => {
-      const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      const placeIDs = dbDrinkData.map(drink => drink.get({ plain: true }));
+    drinks = []
+    placeIDs.slice([0], [10]).map((item, i) => {
+      drinks.push(item);
+    });
       res.render('drinks', {
         drinks,
         loggedIn: req.session.loggedIn,
