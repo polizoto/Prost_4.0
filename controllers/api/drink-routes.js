@@ -57,6 +57,14 @@ router.get('/top10', (req, res) => {
       ],
       having: sequelize.literal(`(star_count) >= ${starsCount}`),
       order: [[sequelize.literal('star_count'), 'DESC']],
+      include: [
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
+      ],
   })
   .then(dbDrinkData => {
     const placeIDs = dbDrinkData.map(drink => drink.get({ plain: true }));
@@ -64,8 +72,7 @@ router.get('/top10', (req, res) => {
     placeIDs.slice([0], [10]).map((item, i) => {
       drinks.push(item);
     });
-
-    res.json(drinks);;
+    res.json(placeIDs[0].category.name);
   })
   .catch(err => {
     console.log(err);

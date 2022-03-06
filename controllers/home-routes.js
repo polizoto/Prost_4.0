@@ -197,13 +197,21 @@ router.get("/gin", (req, res) => {
           model: Comment,
           attributes: ["id"],
         },
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
       ],
       order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
+        const category = drinks[0].category.name
         res.render("drinks", {
           drinks,
+          category: category,
           loggedIn: req.session.loggedIn,
           style: 'style.css'
         });
@@ -240,13 +248,21 @@ router.get("/whiskey", (req, res) => {
           model: Comment,
           attributes: ["id"],
         },
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
       ],
       order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
+        const category = drinks[0].category.name
         res.render("drinks", {
           drinks,
+          category: category,
           loggedIn: req.session.loggedIn,
           style: 'style.css'
         });
@@ -282,13 +298,21 @@ router.get("/tequila", (req, res) => {
           model: Comment,
           attributes: ["id"],
         },
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
       ],
       order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
+        const category = drinks[0].category.name
         res.render("drinks", {
           drinks,
+          category: category,
           loggedIn: req.session.loggedIn,
           style: 'style.css'
         });
@@ -324,13 +348,21 @@ router.get("/vodka", (req, res) => {
           model: Comment,
           attributes: ["id"],
         },
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
       ],
       order: [[sequelize.literal('name'), 'ASC']],
     })
       .then((dbDrinkData) => {
         const drinks = dbDrinkData.map((drink) => drink.get({ plain: true }));
+        const category = drinks[0].category.name
         res.render("drinks", {
           drinks,
+          category: category,
           loggedIn: req.session.loggedIn,
           style: 'style.css'
         });
@@ -366,13 +398,21 @@ router.get('/rum', (req, res) => {
           model: Comment,
           attributes: ["id"],
         },
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
       ],
       order: [[sequelize.literal('name'), 'ASC']],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      const category = drinks[0].category.name
       res.render('drinks', {
         drinks,
+        category: category,
         loggedIn: req.session.loggedIn,
         style: 'style.css'
       });
@@ -408,13 +448,21 @@ router.get('/brandy', (req, res) => {
           model: Comment,
           attributes: ["id"],
         },
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
       ],
       order: [[sequelize.literal('name'), 'ASC']],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      const category = drinks[0].category.name
       res.render('drinks', {
         drinks,
+        category: category,
         loggedIn: req.session.loggedIn,
         style: 'style.css'
       });
@@ -450,13 +498,21 @@ router.get('/cordials', (req, res) => {
           model: Comment,
           attributes: ["id"],
         },
+        {
+          model: Category,
+          attributes: [
+            "name"
+          ],
+        },
       ],
       order: [[sequelize.literal('name'), 'ASC']],
     })
     .then(dbDrinkData => {
       const drinks = dbDrinkData.map(drink => drink.get({ plain: true }));
+      const category = drinks[0].category.name
       res.render('drinks', {
         drinks,
+        category: category,
         loggedIn: req.session.loggedIn,
         style: 'style.css'
       });
@@ -489,6 +545,14 @@ router.get('/top10', (req, res) => {
         ],
         having: sequelize.literal(`(star_count) >= ${starsCount}`),
         order: [[sequelize.literal('star_count'), 'DESC']],
+        include: [
+          {
+            model: Category,
+            attributes: [
+              "name"
+            ],
+          },
+        ],
     })
     .then(dbDrinkData => {
       const placeIDs = dbDrinkData.map(drink => drink.get({ plain: true }));
@@ -498,6 +562,7 @@ router.get('/top10', (req, res) => {
     });
       res.render('drinks', {
         drinks,
+        category: 'Top 10',
         loggedIn: req.session.loggedIn,
         style: 'style.css'
       });

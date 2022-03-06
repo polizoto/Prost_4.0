@@ -3,7 +3,11 @@
 
 
 <section class="container">
-    <h3 class="h3">Our {{drinks.category}} Drinks</h3>
+    {{#if category}}
+    <h3 class="h3">{{category}}</h3>
+    {{else}}
+    <h3 class="h3">Our Drinks</h3>
+    {{/if}}
 </section>
 
 <div class="card-deck">
