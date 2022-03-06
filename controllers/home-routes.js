@@ -44,11 +44,7 @@ router.get("/drink/:id", (req, res) => {
       },
       {
         model: Star,
-        attributes: ["id"],
-        include: {
-          model: User,
-          attributes: ["id", "created_at"],
-        }
+        attributes: ["id", "user_id", ]
       }
     ],
     order: [[sequelize.literal('name'), 'ASC']],
@@ -60,11 +56,24 @@ router.get("/drink/:id", (req, res) => {
         return;
       }
       const drinks = dbDrinkData.get({ plain: true });
-      // make an array from string of ingredient items
       const drinkItems = drinks.ingredients.split(',');
 
-      const starredDrink = drinks.stars[0]
-      // make object with separate items from array
+      const starredDrink = drinks.stars
+
+      // const starID = null
+
+      var hasMatch =false;
+
+        for (var index = 0; index < starredDrink.length; ++index) {
+
+        var userStar = starredDrink[index];  
+        if(userStar.user_id === req.session.user_id){
+          var starID = userStar.id
+          hasMatch = true;
+          break;
+        }
+        }
+
       let ingredients = []
       function getIngredients(item, index) {
         let object = { ingredient: index + 1, item: item.trim(), }
@@ -93,6 +102,8 @@ router.get("/drink/:id", (req, res) => {
         drinks: drinks,
         isStarred: isStarred,
         starredDrink: starredDrink,
+        starID: starID,
+        hasMatch: hasMatch,
         ingredients: ingredients,
         instructions: instructions,
         loggedIn: req.session.loggedIn,
